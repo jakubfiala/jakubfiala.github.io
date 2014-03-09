@@ -43,18 +43,18 @@ body {
 
 p {
 	padding-left: 10px;
-	padding-bottom: 5px;
-	width: 500px;
-	text-align: left;
+	padding-bottom: 20px;
+	width: 805px;
+	text-align: justify;
 	line-height: 1.5;
 }
 
 #content {
 	margin-top: 5px;
-	background-color: rgba(255,0);
+	background-color: rgba(255,0.5);
 	cursor: default;
 	z-index: -1;
-	position: relative;
+	position: fixed;
 	top: 0px;
 }
 
@@ -79,9 +79,41 @@ p {
 
 }
 
+#_intro {
+	padding-left: 10px;
+	padding-bottom: 20px;
+
+}
+
+#_bio {
+	padding-bottom: 20px;
+	background: rgba(255);
+}
+
+#_sound {
+	padding-bottom: 20px;
+}
+
+#_picture {
+	padding-bottom: 20px;
+}
+
+#_space {
+	padding-bottom: 20px;
+}
+
+#animation {
+
+}
 
 
 .social {
 	width: 20px;
 	height: 20px;	
+}
+
+.footnote {
+	font-family: Arial;
+	font-size: 10px;
+	margin-left: 10px;	
 }
