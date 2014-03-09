@@ -49,6 +49,12 @@ p {
 	line-height: 1.5;
 }
 
+h3 {
+	padding-left: 10px;
+	font-size: 18px;
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+}
+
 #content {
 	margin-top: 5px;
 	background-color: rgba(255,0.5);
