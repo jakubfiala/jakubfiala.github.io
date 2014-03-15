@@ -90,7 +90,7 @@ $( document ).ready(function() {
 	var size = 50;
 	var forward = true;
 	canvas.height = dim.height - 50;
-	canvas.width = 27*size*0.6;
+	canvas.width = (Math.round(dim.width/(size*0.6)))*size*0.6 + size*0.6;
 
 	function newTriangle(x,y) {
 		ctx.fillStyle = colors[Math.floor(Math.random()*4)];
