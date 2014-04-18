@@ -27,7 +27,7 @@ $( document ).ready(function() {
 
 
 	//CONTENT
-	var path = $.fn.scrollPath("getPath", {scrollSpeed: 10});
+	var path = $.fn.scrollPath("getPath", {scrollSpeed: 20});
 	path.moveTo(dim.width/2,dim.height/2,{name: "_intro"});
 	path.lineTo(dim.width/2,dim.height*1.5-50,{name: "_bio"});
 	path.lineTo(dim.width/2,dim.height*2.5-100,{name: "_sound"});
@@ -119,21 +119,15 @@ $( document ).ready(function() {
 	}
 
 	setInterval(function(){
-		if (forward) {
+		countY = Math.round(Math.random()*Math.round(canvas.height/size));
+		countX = Math.round(Math.random()*Math.round(canvas.width/(size*0.6)));
+		if (forward) {
 			newTriangle(countX,countY);
+			forward = !forward;
 		}
 		else {
 			revTriangle(countX,countY);
-		}
-		countY++;
-		if ((countY%(Math.round(canvas.height/size))) == 0) {
-			countX++;
-			countY=0;
-		}
-		if (((countY%(Math.round(canvas.height/size))) == 0) && (countX%(Math.round(canvas.width/(size*0.6))) == 0)) {
 			forward = !forward;
-			countX = 0;
-			countY = 0;
 		}
 	}, 50);
 
