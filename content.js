@@ -28,7 +28,7 @@ $( document ).ready(function() {
 
 	//CONTENT
 	var path = $.fn.scrollPath("getPath", {scrollSpeed: 20});
-	path.moveTo(dim.width/2,$("#_intro").position().top,{name: "_intro"});
+	path.moveTo(dim.width/2,dim.height/2,{name: "_intro"});
 	path.lineTo(dim.width/2,$("#_bio").position().top,{name: "_bio"});
 	path.lineTo(dim.width/2,$("#_sound").position().top,{name: "_sound"});
 	path.lineTo(dim.width/2,$("#_picture").position().top,{name: "_picture"});
