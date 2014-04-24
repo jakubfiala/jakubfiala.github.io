@@ -29,10 +29,10 @@ $( document ).ready(function() {
 	//CONTENT
 	var path = $.fn.scrollPath("getPath", {scrollSpeed: 20});
 	path.moveTo(dim.width/2,dim.height/2,{name: "_intro"});
-	path.lineTo(dim.width/2,$("#_bio").position().top+dim.height/2,{name: "_bio"});
-	path.lineTo(dim.width/2,$("#_sound").position().top+dim.height/2,{name: "_sound"});
-	path.lineTo(dim.width/2,$("#_picture").position().top+dim.height/2,{name: "_picture"});
-	path.lineTo(dim.width/2,$("#_space").position().top+dim.height/2,{name: "_space"});
+	path.lineTo(dim.width/2,$("#_bio").position().top+dim.height,{name: "_bio"});
+	path.lineTo(dim.width/2,$("#_sound").position().top+dim.height,{name: "_sound"});
+	path.lineTo(dim.width/2,$("#_picture").position().top+dim.height,{name: "_picture"});
+	path.lineTo(dim.width/2,$("#_space").position().top+dim.height,{name: "_space"});
 
 	//initialize scrollpath
 	$("#content").scrollPath({drawPath: false, wrapAround: false, scrollBar: false});
