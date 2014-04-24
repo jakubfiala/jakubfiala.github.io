@@ -28,11 +28,11 @@ $( document ).ready(function() {
 
 	//CONTENT
 	var path = $.fn.scrollPath("getPath", {scrollSpeed: 20});
-	path.moveTo(dim.width/2,dim.height/2,{name: "_intro"});
-	path.lineTo(dim.width/2,dim.height*1.5-50,{name: "_bio"});
-	path.lineTo(dim.width/2,dim.height*2.5-100,{name: "_sound"});
-	path.lineTo(dim.width/2,dim.height*3.5,{name: "_picture"});
-	path.lineTo(dim.width/2,dim.height*4.5,{name: "_space"});
+	path.moveTo(dim.width/2,$("#_intro").position().top,{name: "_intro"});
+	path.lineTo(dim.width/2,$("#_bio").position().top,{name: "_bio"});
+	path.lineTo(dim.width/2,$("#_sound").position().top,{name: "_sound"});
+	path.lineTo(dim.width/2,$("#_picture").position().top,{name: "_picture"});
+	path.lineTo(dim.width/2,$("#_space").position().top,{name: "_space"});
 
 	//initialize scrollpath
 	$("#content").scrollPath({drawPath: false, wrapAround: false, scrollBar: false});
