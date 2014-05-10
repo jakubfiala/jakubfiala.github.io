@@ -16,19 +16,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     -webkit-font-smoothing: antialiased;
     -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-/* remember to define focus styles! */
 
-
-/*business*/
 header {
-	padding-top: 5px;
+	padding-top: 10px;
 	font-size: 30px;
 	text-align: left;
 	padding-left: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 	background-color: rgba(255,255,255,0.8);
 	z-index: 4;
-	position: relative;
+	position: fixed;
+	top:-5px;
 	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 }
 
@@ -38,10 +36,11 @@ footer {
 	font-family: Arial;
 	color: #999;
 	text-align: center;
+	position: fixed;
 }
 
 body {
-	overflow: hidden;
+
 }
 
 p {
@@ -56,14 +55,18 @@ h3 {
 	padding-left: 10px;
 	font-size: 22px;
 	text-align: center;
-	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
 h4 {
 	padding-left: 10px;
 	font-size: 18px;
 	text-align: center;
-	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+.menuitem {
+	height: 35px;
 }
 
 a:link {
@@ -95,9 +98,11 @@ a:hover {
 	background-color: rgba(255,0.5);
 	cursor: default;
 	z-index: 0;
-	position: fixed;
+	position: relative;
 	top: 0px;
 	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	overflow: hidden;
+	text-align: center;
 }
 
 
@@ -112,8 +117,8 @@ a:hover {
 }
 
 
-#picture {
-	padding-bottom: 500px;
+#software {
+
 }
 
 
@@ -132,19 +137,20 @@ a:hover {
 }
 
 #_sound {
-	padding-bottom: 200px;
+	padding-bottom: 500px;
 }
 
-#_picture {
-	padding-bottom: 20px;
+#_software {
+	padding-bottom: 500px;
 }
 
 #_space {
-	padding-bottom: 20px;
+	padding-bottom: 500px;
 }
 
 #animation {
-
+	position: relative;
+	top: -10px;
 }
 
 
@@ -157,4 +163,8 @@ a:hover {
 	font-family: Arial;
 	font-size: 10px;
 	margin-left: 10px;	
+}
+
+#arrow {
+	position: fixed;
 }
