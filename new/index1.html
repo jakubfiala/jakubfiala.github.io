@@ -2,14 +2,11 @@
 <head>
 	<title>jakub fiala</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="styles_new.css">
+	<link rel="stylesheet" href="styles3.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<canvas id="grain">
-</canvas>
-
 
 <div id="shade">
 </div>
@@ -17,19 +14,22 @@
 <img class="bgload" src="images/bg2.jpg">
 <img class="bgload" src="images/bg3.jpg">
 <div id="menu">
-	<span class="menuitem" title="sound">SOUND</span>
-	<span class="menuitem" title="code">CODE</span>
-	<span class="menuitem" title="space">SPACE</span>
+	<span class="hl menuitem sign">~</span>
+	<span class="hl menuitem sign">&lt;/&gt;</span>
+	<span class="hl menuitem sign">()</span>
+	<span class="hl menuitem desc">sound</span>
+	<span class="hl menuitem desc">code</span>
+	<span class="hl menuitem desc">space</span>
 </div>
 
 <div id="content-wrapper">
 	<div id="content">
 		<p id="soundtext" class="contenttext">
-			<span>
+			<span class="hl">
 				<span class="heading">//Theydon Boys</span><br>
-				In late 2011, I have started my solo electronic project, Theydon Boys. Inspired by sampling culture and
+				In late 2011, I have started my solo electronic project, Theydon Boys. Inspired by the sampling culture and
 				ambient music, I created rhythmic pieces based on organic aesthetics. Currently I'm in the process of devising
-				a stripped-down conceptual record based on rudimental guitar themes.<br><br>
+				a stripped-down conceptual record based on rudimental guitar themes.
 				<iframe id="soundcloud" width="100%" height="200px" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/34265114%3Fsecret_token%3Ds-xgGWl&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
 				<br><br>
 				<span class="heading">//Map Series</span><br>
@@ -51,7 +51,7 @@
 			</span>
 		</p>
 		<p id="codetext" class="contenttext">
-			<span>
+			<span class="hl">
 				<span class="heading">//meyda</span><br>
 				I am collaborating with <a href="http://hughrawlinson.me/">Hugh Rawlinson</a> and <a href="http://nevosegal.co.uk/">Nevo Segal</a>
 				on <a href="http://github.com/hughrawlinson/meyda">Meyda,</a> an audio feature extraction library for the Web. About to feature in proceedings
@@ -71,14 +71,14 @@
 		<p id="spacetext" class="contenttext">
 		</p>
 		<p id="introtext">
-			<span>
+			<span class="hl">
 				Hi, I'm Jakub. I make sound, I write code, I fill spaces.<br><br>
-				twitter ~ <a href="http://twitter.com/j4kubfiala">@j4kubfiala</a><br>
-				github ~ <a href="http://github.com/jakubfiala">jakubfiala</a><br>
-				soundcloud ~ <a href="http://soundcloud.com/theydonboys">theydonboys</a><br>
-				insta ~ <a href="http://instagram.com/helfarch">@helfarch</a><br>
-				linkedin ~ <a href="http://lnkd.in/a_ZUvF">Jakub Fiala</a><br>
-				vimeo ~ <a href="http://vimeo.com/fiala">fiala</a><br>
+				TT ~ <a href="http://twitter.com/j4kubfiala">@j4kubfiala</a><br>
+				GH ~ <a href="http://github.com/jakubfiala">jakubfiala</a><br>
+				SC ~ <a href="http://soundcloud.com/theydonboys">theydonboys</a><br>
+				IG ~ <a href="http://instagram.com/helfarch">@helfarch</a><br>
+				LI ~ <a href="http://lnkd.in/a_ZUvF">Jakub Fiala</a><br>
+				VI ~ <a href="http://vimeo.com/fiala">fiala</a><br>
 				<br>
 				<span style="font-size:30px">~</span>
 			</span>
@@ -93,10 +93,18 @@
 
 <script>
 
-	$(".menuitem").click(function(){
+	$("#menu").hover(function() {
+		$(this).find('.sign').hide();
+		$(this).find('.desc').show();
+	}, function() {
+		$(this).find('.desc').hide();
+		$(this).find('.sign').show();
+	});
+
+	$(".menuitem.desc").click(function(){
 		var self = this;
 		$(".contenttext").fadeOut(300, function(){
-			$("#" + $(self).attr("title") + "text").fadeIn();
+			$("#" + $(self).html() + "text").fadeIn();
 		});
 
 		var bgno = Math.round(Math.random()*(4 - 1) + 1);
@@ -104,76 +112,19 @@
 		$('body, html').css("background-size","cover");
 		$('body, html').css("background-repeat","no-repeat");
 		$('body, html').css("background-attachment","fixed");
+		console.log("prd" + bgno);
 	})
 
 	function init() {
 		$(".contenttext").hide();
 		$("#introtext").show();
-		$("#content-wrapper").css("height", $(window).height()-136);
 
-		window.AudioContext = window.AudioContext || window.webkitAudioContext;
-
-		window.ac = new AudioContext();
-
-		window.source = ac.createBufferSource();
-		window.gainNode = ac.createGain();
-
-		var request = new XMLHttpRequest();
-		request.open('GET', 'audio/b.wav', true);
-		request.responseType = 'arraybuffer';
-
-		// Decode asynchronously
-		request.onload = function() {
-			ac.decodeAudioData(request.response, function(buf) {
-				source.buffer = buf;
-				source.loop = true;
-				source.connect(gainNode);
-				gainNode.connect(ac.destination);
-				gainNode.gain.value = 0.0;
-				source.start(0);
-
-				setTimeout(function(){
-					$('#shade').fadeOut(500);
-					gainNode.gain.linearRampToValueAtTime(0.1, ac.currentTime + 2);
-				}, 2000);
-
-			});
-		}
-
-		request.send();
-
-
+		setTimeout(function(){
+			$('#shade').fadeOut(500);
+		}, 2000);
 	}
 
 	init();
 
 </script>
-
-<!-- GRAIN SCRIPT -->
-<script type="text/javascript">
-	var canvas = $("#grain")[0];
-	canvas.height = $(window).height();
-	canvas.width = $(window).width();
-	var c = canvas.getContext('2d');
-
-	var imageData = c.createImageData($(window).width(), $(window).height());
-
-	var f = function() {
-		for (var i = 0; i < imageData.data.length; i += 4) {
-			var n = Math.round(Math.random()*100);
-			for (var j = 0; j < 4; j++) {
-				imageData.data[i+j] = n;
-			}
-		}
-
-		c.putImageData(imageData, 0, 0);
-
-		requestAnimationFrame(f);
-
-	};
-
-	requestAnimationFrame(f);
-
-</script>
-
 </body>
