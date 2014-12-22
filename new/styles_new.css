@@ -25,6 +25,9 @@ body, html {
 	font-family: 'Alegreya Sans', sans-serif;
 }
 
+#content-wrapper::-webkit-scrollbar { width: 0 !important; }
+body::-webkit-scrollbar { width: 0 !important; }
+
 footer {
 	width: 100%;
 	position: relative;
