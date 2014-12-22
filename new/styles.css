@@ -1,0 +1,109 @@
+/*reset*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
+body {
+	font-family: Consolas, monaco, monospace;
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+a:hover {
+	color: #777;
+}
+
+p {
+	padding-bottom: 20px;
+}
+
+#main {
+	overflow: hidden;
+}
+
+#wrapper#view {
+	display: inline-block;
+	position: absolute;
+	overflow: scroll;
+}
+
+#wrapper {
+	float: left;
+	overflow: scroll;
+	z-index: 1;
+	padding-left: 5px;
+	position: relative;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+#wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#view {
+	float: right;
+	overflow: scroll;
+	z-index: 0;
+	position: relative;
+}
+
+#menu {
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: absolute;
+	background-color: rgba(255,255,255,0.9);
+	text-align: left;
+	overflow: visible;
+	z-index: 2;
+	height: 60px;
+}
+
+.menuitem {
+	font-size: 40px;
+	cursor: pointer;
+	position: static;
+}
+
+.slide {
+	display: none;
+}
+
+#home {
+	font-family: Consolas, monaco, monospace;
+	font-size: 40px;
+}
+
+.content {
+	padding: 10px;
+	padding-left: 13px;
+	padding-top: 80px;
+	text-align: justify;
+	font-size: 18px;
+	width: 570px;
+	line-height: 25px;
+	display: none;
+}
