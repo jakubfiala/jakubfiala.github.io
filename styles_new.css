@@ -37,6 +37,7 @@ footer {
 	font-weight: normal;
 	color: white;
 	top: 98vh;
+	z-index: 2;
 }
 
 a {
@@ -70,19 +71,19 @@ a:visited {
 	top: 0px;
 	left: 0px;
 	display: inline-block;
-	z-index: 1;
+	z-index: 3;
 }
 
 #menu {
 	width: 100%;
-	min-height: 60px;
 	height: 10vh;
 	text-align: center;
 	margin-top: 10px;
 	padding-bottom: 10px;
 	position: fixed;
 	top:0;
-	z-index: 1;
+	z-index: 2;
+	overflow: visible;
 }
 
 .menuitem {
@@ -102,6 +103,10 @@ a:visited {
 }
 
 .menuitem:hover {
+	text-shadow: 0em 0em 0.2em white;
+}
+
+.on {
 	text-shadow: 0em 0em 0.2em white;
 }
 
@@ -154,9 +159,14 @@ p {
 	font-size: 1em;
 }
 
-#contenttext {
+#introtext img {
+	width: 13vw;
+}
+
+.contenttext {
 	text-align: center;
 	text-align: justify;
+	margin-bottom: 20vh;
 }
 
 .heading {
@@ -186,6 +196,17 @@ p {
 
 #loader {
 	position: fixed;
-	top: 50vh;
-	left: 50vw;
+	top: 48vh;
+	left: 48vw;
+}
+
+#audioSwitch {
+	position: fixed;
+	float: right;
+	margin-right: 0.5vw;
+	display: inline-block;
+	right: 0vw;
+	font-size: 13px;
+	font-family: Courier;
+	cursor: pointer;
 }

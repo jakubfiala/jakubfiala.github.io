@@ -12,7 +12,7 @@
 
 
 <div id="shade">
-	<img id="loader" src="images/ajax-loader.gif">
+	<img id="loader" src="images/gif-load.gif">
 </div>
 <img class="bgload" src="images/bg1.jpg">
 <img class="bgload" src="images/bg2.jpg">
@@ -27,6 +27,7 @@
 	<div id="content">
 		<p id="soundtext" class="contenttext">
 			<span>
+				My primary concern has always been sound and music. Here's what I do:<br><br>
 				<span class="heading">//Theydon Boys ▸</span><br>
 				In late 2011, I have started my solo electronic project, Theydon Boys. Inspired by sampling culture and
 				ambient music, I created rhythmic pieces based on organic aesthetics. Currently I'm in the process of devising
@@ -53,6 +54,7 @@
 		</p>
 		<p id="codetext" class="contenttext">
 			<span>
+				I also code &mdash; mainly for creative and interactive applications, multimedia information retrieval and fun.<br><br>
 				<span class="heading"><a href="hughrawlinson.github.io/meyda">//meyda &rArr;</a></span><br>
 					Audio feature extraction library for the Web Audio API that I built with with
 					<a href="http://hughrawlinson.me/">Hugh Rawlinson</a> and
@@ -84,6 +86,7 @@
 		</p>
 		<p id="spacetext" class="contenttext">
 			<span>
+				I love working with people and spaces &mdash; whether it be installations, performances, or community projects.<br><br>
 				<span class="heading"><a href="http://excaelisoblata.tumblr.com/">//Ex Caelis Oblata &rArr;</a></span><br>
 					Final dissertation work for the BMus in <a href="http://www.gold.ac.uk/ug/bmus-bsc-music-computing/">Music Computing</a> at Goldsmiths.
 					Installation piece built on research in sculptural encoding of music, to premiere at Goldsmiths in Spring 2015.
@@ -96,6 +99,7 @@
 
 		</p>
 		<p id="introtext">
+			<img src="images/avatar.png"><br><br>
 			<span>
 				Hi, I'm Jakub. I make sound, I write code, I fill spaces.<br><br>
 				twitter ~ <a href="http://twitter.com/j4kubfiala">@j4kubfiala</a><br>
@@ -114,6 +118,7 @@
 
 <footer>
 	built by me in 2014. if you like it, <a href="http://twitter.com/j4kubfiala" style="color:white;"><u>lmk</u></a>. i can make you one.
+	<div id="audioSwitch">static <b>on</b>/off</div>
 </footer>
 
 <script>
@@ -122,12 +127,16 @@
 		var self = this;
 
 		$(self).click(function(){
-			$(self).css("text-shadow", "0em 0em 0.2em white;");
+			$(".menuitem").removeClass("on");
+			$(self).addClass("on");
 			$(".contenttext").fadeOut(300, function(){
-				setTimeout(function(){$("#" + $(self).attr("title") + "text").fadeIn()}, 200);
+				setTimeout(function(){
+					$("#content-wrapper").scrollTop(0);
+					$("#" + $(self).attr("title") + "text").fadeIn();
+				}, 200);
 			});
 
-			var bgno = Math.round(Math.random()*(3 - 1) + 1);
+			var bgno = Math.round(Math.random()*(5 - 1) + 1);
 			$('body, html').css("background","url('images/bg" + bgno + ".jpg')");
 			$('body, html').css("background-size","cover");
 			$('body, html').css("background-repeat","no-repeat");
@@ -167,6 +176,20 @@
 					$('#shade').fadeOut(500);
 					gainNode.gain.setValueAtTime(0.0, ac.currentTime);
 					gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
+
+					$("#audioSwitch").click(function(){
+						if($("#audioSwitch b").html() == "on") {
+							window.gainNode.gain.setValueAtTime(0, ac.currentTime);
+							$("#audioSwitch").html("static on/<b>off</b>");
+						}
+						else {
+							window.gainNode.gain.setValueAtTime(0, ac.currentTime);
+							window.gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime+3);
+							$("#audioSwitch").html("static <b>on</b>/off");
+						}
+
+					});
+
 				}, 2000);
 
 			});
@@ -228,6 +251,43 @@
 	};
 
 	requestAnimationFrame(f);
+
+	$(window).resize(function(){
+		var f = function() {
+			for (var i = 0; i < imageData.data.length; i += 4) {
+				var n = Math.round(Math.random()*110);
+				for (var j = 0; j < 4; j++) {
+					imageData.data[i+j] = n;
+				}
+			}
+
+			c.putImageData(imageData, 0, 0);
+
+			c.putImageData(imageData, 0, $(window).height()/4);
+			c.putImageData(imageData, $(window).width()/4, 0);
+			c.putImageData(imageData, $(window).width()/4, $(window).height()/4);
+
+			c.putImageData(imageData, 0, $(window).height()/2);
+			c.putImageData(imageData, $(window).width()/2, 0);
+			c.putImageData(imageData, $(window).width()/2, $(window).height()/2);
+
+			c.putImageData(imageData, 0, $(window).height()*0.75);
+			c.putImageData(imageData, $(window).width()*0.75, 0);
+			c.putImageData(imageData, $(window).width()*0.75, $(window).height()*0.75);
+
+			c.putImageData(imageData, $(window).width()/4, $(window).height()*0.75);
+			c.putImageData(imageData, $(window).width()/2, $(window).height()*0.75);
+			c.putImageData(imageData, $(window).width()*0.75, $(window).height()/4);
+			c.putImageData(imageData, $(window).width()*0.75, $(window).height()/2);
+			c.putImageData(imageData, $(window).width()/4, $(window).height()/2);
+			c.putImageData(imageData, $(window).width()/2, $(window).height()/4);
+
+
+
+			setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
+
+		};
+	})
 
 </script>
 
