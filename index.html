@@ -193,6 +193,7 @@
 								window.gainNode.gain.setValueAtTime(0, ac.currentTime);
 								window.gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime+3);
 								$("#audioSwitch").html("static <b>on</b>/off");
+								if (CanvasRenderingContext2D) requestAnimationFrame(f);
 								staticOn = true;
 							}
 
@@ -264,44 +265,6 @@
 	};
 
 	if (CanvasRenderingContext2D) requestAnimationFrame(f);
-
-	$(window).resize(function(){
-		f = function() {
-			if (staticOn) {
-				for (var i = 0; i < imageData.data.length; i += 4) {
-					var n = Math.round(Math.random()*110);
-					for (var j = 0; j < 4; j++) {
-						imageData.data[i+j] = n;
-					}
-				}
-
-				c.putImageData(imageData, 0, 0);
-
-				c.putImageData(imageData, 0, $(window).height()/4);
-				c.putImageData(imageData, $(window).width()/4, 0);
-				c.putImageData(imageData, $(window).width()/4, $(window).height()/4);
-
-				c.putImageData(imageData, 0, $(window).height()/2);
-				c.putImageData(imageData, $(window).width()/2, 0);
-				c.putImageData(imageData, $(window).width()/2, $(window).height()/2);
-
-				c.putImageData(imageData, 0, $(window).height()*0.75);
-				c.putImageData(imageData, $(window).width()*0.75, 0);
-				c.putImageData(imageData, $(window).width()*0.75, $(window).height()*0.75);
-
-				c.putImageData(imageData, $(window).width()/4, $(window).height()*0.75);
-				c.putImageData(imageData, $(window).width()/2, $(window).height()*0.75);
-				c.putImageData(imageData, $(window).width()*0.75, $(window).height()/4);
-				c.putImageData(imageData, $(window).width()*0.75, $(window).height()/2);
-				c.putImageData(imageData, $(window).width()/4, $(window).height()/2);
-				c.putImageData(imageData, $(window).width()/2, $(window).height()/4);
-
-
-
-				setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
-			}
-		};
-	})
 
 </script>
 
