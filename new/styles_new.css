@@ -33,7 +33,7 @@ footer {
 	width: 100%;
 	position: fixed;
 	text-align: center;
-	font-size: 13px;
+	font-size: 0.85em;
 	font-weight: normal;
 	color: white;
 	top: 98vh;
@@ -143,7 +143,7 @@ p {
 	/*display: inline-block;*/
 	padding: 5px;
 	line-height: 2.5ex;
-	font-size: 16px;
+	font-size: 1.3em;
 	text-align: justify;
 }
 

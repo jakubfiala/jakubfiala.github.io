@@ -136,9 +136,11 @@
 	});
 
 	function init() {
+		$("body").css("font-size", window.devicePixelRatio*15);
+
 		$(".contenttext").hide();
 		$("#introtext").show();
-		$("#content-wrapper").css("height", $(window).height()-136);
+		//$("#content-wrapper").css("height", $(window).height()-136);
 
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
