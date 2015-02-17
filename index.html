@@ -151,52 +151,62 @@
 		$("#introtext").show();
 		//$("#content-wrapper").css("height", $(window).height()-136);
 
+
+		window.staticOn = true;
+
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-		window.ac = new AudioContext();
+		if (window.AudioContext) {
+			window.ac = new AudioContext();
 
-		window.source = ac.createBufferSource();
-		window.gainNode = ac.createGain();
+			window.source = ac.createBufferSource();
+			window.gainNode = ac.createGain();
 
-		var request = new XMLHttpRequest();
-		request.open('GET', 'audio/b.wav', true);
-		request.responseType = 'arraybuffer';
+			var request = new XMLHttpRequest();
+			request.open('GET', 'audio/b.wav', true);
+			request.responseType = 'arraybuffer';
 
-		// Decode asynchronously
-		request.onload = function() {
-			ac.decodeAudioData(request.response, function(buf) {
-				source.buffer = buf;
-				source.loop = true;
-				source.connect(gainNode);
-				gainNode.connect(ac.destination);
-				gainNode.gain.setValueAtTime(0.0, ac.currentTime);
-				source.start(0);
-
-				setTimeout(function(){
-					$('#shade').fadeOut(500);
+			// Decode asynchronously
+			request.onload = function() {
+				ac.decodeAudioData(request.response, function(buf) {
+					source.buffer = buf;
+					source.loop = true;
+					source.connect(gainNode);
+					gainNode.connect(ac.destination);
 					gainNode.gain.setValueAtTime(0.0, ac.currentTime);
-					gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
+					source.start(0);
 
-					$("#audioSwitch").click(function(){
-						if($("#audioSwitch b").html() == "on") {
-							window.gainNode.gain.setValueAtTime(0, ac.currentTime);
-							$("#audioSwitch").html("static on/<b>off</b>");
-						}
-						else {
-							window.gainNode.gain.setValueAtTime(0, ac.currentTime);
-							window.gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime+3);
-							$("#audioSwitch").html("static <b>on</b>/off");
-						}
+					setTimeout(function(){
+						$('#shade').fadeOut(500);
+						gainNode.gain.setValueAtTime(0.0, ac.currentTime);
+						gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
 
-					});
+						$("#audioSwitch").click(function(){
+							if($("#audioSwitch b").html() == "on") {
+								window.gainNode.gain.setValueAtTime(0, ac.currentTime);
+								$("#audioSwitch").html("static on/<b>off</b>");
+								staticOn = false;
+							}
+							else {
+								window.gainNode.gain.setValueAtTime(0, ac.currentTime);
+								window.gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime+3);
+								$("#audioSwitch").html("static <b>on</b>/off");
+								staticOn = true;
+							}
 
-				}, 2000);
+						});
 
-			});
+					}, 2000);
+
+				});
+			}
+
+			request.send();
 		}
-
-		request.send();
-
+		else {
+			$("#audioSwitch").hide();
+			setTimeout($('#shade').fadeOut(), 3000);
+		}
 
 	}
 
@@ -216,44 +226,7 @@
 	var imageData = c.createImageData($(window).width()/4, $(window).height()/4);
 
 	var f = function() {
-		for (var i = 0; i < imageData.data.length; i += 4) {
-			var n = Math.round(Math.random()*110);
-			for (var j = 0; j < 4; j++) {
-				imageData.data[i+j] = n;
-			}
-		}
-
-		c.putImageData(imageData, 0, 0);
-
-		c.putImageData(imageData, 0, $(window).height()/4);
-		c.putImageData(imageData, $(window).width()/4, 0);
-		c.putImageData(imageData, $(window).width()/4, $(window).height()/4);
-
-		c.putImageData(imageData, 0, $(window).height()/2);
-		c.putImageData(imageData, $(window).width()/2, 0);
-		c.putImageData(imageData, $(window).width()/2, $(window).height()/2);
-
-		c.putImageData(imageData, 0, $(window).height()*0.75);
-		c.putImageData(imageData, $(window).width()*0.75, 0);
-		c.putImageData(imageData, $(window).width()*0.75, $(window).height()*0.75);
-
-		c.putImageData(imageData, $(window).width()/4, $(window).height()*0.75);
-		c.putImageData(imageData, $(window).width()/2, $(window).height()*0.75);
-		c.putImageData(imageData, $(window).width()*0.75, $(window).height()/4);
-		c.putImageData(imageData, $(window).width()*0.75, $(window).height()/2);
-		c.putImageData(imageData, $(window).width()/4, $(window).height()/2);
-		c.putImageData(imageData, $(window).width()/2, $(window).height()/4);
-
-
-
-		setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
-
-	};
-
-	requestAnimationFrame(f);
-
-	$(window).resize(function(){
-		var f = function() {
+		if (staticOn) {
 			for (var i = 0; i < imageData.data.length; i += 4) {
 				var n = Math.round(Math.random()*110);
 				for (var j = 0; j < 4; j++) {
@@ -285,7 +258,46 @@
 
 
 			setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
+		}
+	};
 
+	if (CanvasRenderingContext2D) requestAnimationFrame(f);
+
+	$(window).resize(function(){
+		f = function() {
+			if (staticOn) {
+				for (var i = 0; i < imageData.data.length; i += 4) {
+					var n = Math.round(Math.random()*110);
+					for (var j = 0; j < 4; j++) {
+						imageData.data[i+j] = n;
+					}
+				}
+
+				c.putImageData(imageData, 0, 0);
+
+				c.putImageData(imageData, 0, $(window).height()/4);
+				c.putImageData(imageData, $(window).width()/4, 0);
+				c.putImageData(imageData, $(window).width()/4, $(window).height()/4);
+
+				c.putImageData(imageData, 0, $(window).height()/2);
+				c.putImageData(imageData, $(window).width()/2, 0);
+				c.putImageData(imageData, $(window).width()/2, $(window).height()/2);
+
+				c.putImageData(imageData, 0, $(window).height()*0.75);
+				c.putImageData(imageData, $(window).width()*0.75, 0);
+				c.putImageData(imageData, $(window).width()*0.75, $(window).height()*0.75);
+
+				c.putImageData(imageData, $(window).width()/4, $(window).height()*0.75);
+				c.putImageData(imageData, $(window).width()/2, $(window).height()*0.75);
+				c.putImageData(imageData, $(window).width()*0.75, $(window).height()/4);
+				c.putImageData(imageData, $(window).width()*0.75, $(window).height()/2);
+				c.putImageData(imageData, $(window).width()/4, $(window).height()/2);
+				c.putImageData(imageData, $(window).width()/2, $(window).height()/4);
+
+
+
+				setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
+			}
 		};
 	})
 
