@@ -183,3 +183,9 @@ p {
 	top: 0px;
 	z-index: 0;
 }
+
+#loader {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+}
