@@ -196,8 +196,10 @@ p {
 
 #loader {
 	position: fixed;
-	top: 48vh;
+	top: 40vh;
 	left: 48vw;
+	height: 10vh;
+	opacity: 0.5;
 }
 
 #audioSwitch {
@@ -209,4 +211,8 @@ p {
 	font-size: 13px;
 	font-family: Courier;
 	cursor: pointer;
+}
+
+#description-for-weird-websites-that-dont-do-meta-tags {
+	display: none;
 }
