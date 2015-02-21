@@ -214,5 +214,7 @@ p {
 }
 
 #description-for-weird-websites-that-dont-do-meta-tags {
-	display: none;
+	position: fixed;
+	z-index: -5;
+	opacity: 0.00000001;
 }
