@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="styles_new.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="//connect.soundcloud.com/sdk.js"></script>
 	<meta property="og:image" src="images/avatar.png">
 	<meta property="og:title" content="jakub fiala" />
 	<meta property="og:description"   content="Hi, I'm Jakub. I make sound, I write code, I fill spaces."/>
@@ -17,14 +16,6 @@
 <body>
 <canvas id="grain">
 </canvas>
-
-<!-- SC STUFF -->
-<script>
-  SC.initialize({
-    client_id: "75a9b814ff06ec801101fb06de36f9f4",
-    redirect_uri: "http://fiala.uk/callback.html",
-  });
-</script>
 
 <div id="shade">
 	<img id="loader" src="images/gif-load.gif">
@@ -164,10 +155,6 @@
 			$('body, html').css("background-attachment","fixed");
 		});
 	});
-
-	function playTheydonBoys() {
-
-	};
 
 	function init() {
 
