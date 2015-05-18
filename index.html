@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="styles_new.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mousewheel.min.js"></script>
 	<meta property="og:image" src="images/avatar.png">
 	<meta property="og:title" content="jakub fiala" />
 	<meta property="og:description"   content="Hi, I'm Jakub. I make sound, I write code, I fill spaces."/>
@@ -14,12 +15,15 @@
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
+
+
+<div id="shade">
+	<img id="loader" src="images/712.gif">
+</div>
+
 <canvas id="grain">
 </canvas>
 
-<div id="shade">
-	<img id="loader" src="images/gif-load.gif">
-</div>
 <img class="bgload" src="images/bg1.jpg">
 <img class="bgload" src="images/bg2.jpg">
 <img class="bgload" src="images/bg3.jpg">
@@ -30,6 +34,7 @@
 	<span class="menuitem" title="code">CODE</span>
 	<span class="menuitem" title="space">SPACE</span>
 </div>
+
 
 <div id="content-wrapper">
 	<div id="content">
@@ -52,11 +57,11 @@
 				Field recording / sampling / Ableton Live.<br><br>
 				<span class="heading">//Growing Things ▸</span><br>
 				composition for electric guitar &amp; generative system // based on genetic algorithms and Lindenmayer systems<br>
-				presented in April 2014 at Goldsmiths College.<br><br>
+				presented in April 2014 at Goldsmiths College, and performed by <a href="http://davidsomlo.com">Dávid Somló</a> in 2015.<br><br>
 				<span class="heading"><a href="http://soundcloud.com/theydonboys/ghosts">//Ghosts ▸</a></span><br>
-				sound design, reactive composition // ongoing piece based on the disappearance of Amelia Earhart in the late 1930s. Exploring the relationship between events and interpretations via a reactive audio analysis system // intended as a sound installation.<br><br>
+				sound design, reactive composition // ongoing piece based on the disappearance of Amelia Earhart in the late 1930s. Exploring the relationship between events and interpretations via a reactive audio analysis system // intended as a sound installation. Max/MSP.<br><br>
 				<span class="heading"><a href="http://soundcloud.com/theydonboys/vagues">//Waves ▸</a></span><br>
-				generative composition, electronic // first of my year 2 composition at Goldsmiths // post-serialist piece attempting to juxtapose the ideas of pitch equality and invariant transformation to natural mechanisms of reverberation and material response // static recorded piece.<br><br>
+				generative composition, electronic // first of my year 2 composition at Goldsmiths // post-serialist piece attempting to juxtapose the ideas of pitch equality and invariant transformation to natural mechanisms of reverberation and material response // static recorded piece. Max/MSP.<br><br>
 				<span class="heading"><a href="http://storyculture.co.uk/">//Story Culture &rArr;</a></span><br>
 				I sometimes compose and produce royalty-free music for this exciting creative film agency.<br><br>
 				<span class="heading"><a href="http://facebook.com/escapeband1">//Escape &rArr;</a></span><br>
@@ -98,12 +103,15 @@
 		<p id="spacetext" class="contenttext">
 			<span>
 				I love working with people and spaces &mdash; whether it be installations, performances, or community projects.<br><br>
-				<span class="heading"><a href="http://excaelisoblata.tumblr.com/">//Ex Caelis Oblata &rArr;</a></span><br>
-					Final dissertation work for the BMus in <a href="http://www.gold.ac.uk/ug/bmus-bsc-music-computing/">Music Computing</a> at Goldsmiths.
+				<!--<span class="heading"><a href="http://excaelisoblata.tumblr.com/">//Ex Caelis Oblata &rArr;</a></span><br>
+					Final dissertation work for the BMus in <a href="http://www.gold.ac.uk/ug/bmus-bsc-music-computing/">Music Computing</a> at Goldsmiths. Available in PDF at <a href="https://www.academia.edu/12443686/Ex_Caelis_Oblata_Investigating_artefacts_mystery_and_meaning_in_the_medium_of_sound_installation">academia.edu</a><br>
 					Installation piece built on research in sculptural encoding of music, exploring the human experiences of mystery, awe and religious reverence and focusing on the concepts of meaning in relics and cultural artefacts, aesthetics of monolithic art.<br><br>
 					<iframe width="100%" height="300px" src="https://www.youtube.com/embed/1JZOzsEIhG4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
-				<span class="heading">//Veget &rArr;</a></span><br>
+					<span class="heading"><a href="">//The Artist's Rite &rArr;</a></span><br>
+					Spin-off performance work based on the aesthetics and technology of Ex Caelis Oblata. In this performance, the artist gradually destroys a precious sculpture of their own making.
+					// Max/MSP / Jitter / openFrameworks / Nintendo Wii / web camera / laser module / piezo microphone / modroc / cleaver / tape.<br><br>
+					<iframe width="100%" height="300px" src="https://www.youtube.com/embed/TW_-jGSbykY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+				--><span class="heading">//Veget &rArr;</a></span><br>
 					I've collaborated with young artists from Bratislava, Slovakia, on an entire summer-spanning series
 					of events and art-focused activities for kids in the neighbourhood of Dúbravka.
 				<span class="heading">//Others &rArr;</a></span><br>
@@ -128,6 +136,7 @@
 		<br><br>
 	</div>
 </div>
+
 
 <footer>
 	built by me in 2014. if you like it, <a href="http://twitter.com/j4kubfiala" style="color:white;"><u>lmk</u></a>. i can make you one.
@@ -162,6 +171,12 @@
 
 		$("body").css("font-size", 15);
 
+		//I'M LOOKING AT YOU FIREFOX!!!!!!!!!!!! FIX YOUR STUPID SCROLLBARS!!!!!!!!!!!!!!!! DAMN !!!!!!!!!!!!!!!!!!!!!
+		$('#content-wrapper').bind('mousewheel', function(event) {
+		    event.preventDefault();
+		    $(this).scrollTop($(this).scrollTop() + ((event.deltaY * event.deltaFactor) * -1));
+		 });
+
 		$(".contenttext").hide();
 		$("#introtext").show();
 
@@ -190,7 +205,7 @@
 					source.start(0);
 
 					setTimeout(function(){
-						$('#shade').fadeOut(500);
+						$('#shade').css('opacity', '0');
 						gainNode.gain.setValueAtTime(0.0, ac.currentTime);
 						gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
 
@@ -219,7 +234,7 @@
 		}
 		else {
 			$("#audioSwitch").hide();
-			setTimeout($('#shade').fadeOut(), 3000);
+			$('#shade').css('opacity', '0');
 		}
 
 	}
@@ -240,6 +255,7 @@
 	var imageData = c.createImageData($(window).width()/4, $(window).height()/4);
 
 	var f = function() {
+		console.log("trt");
 		if (staticOn) {
 			for (var i = 0; i < imageData.data.length; i += 4) {
 				var n = Math.round(Math.random()*110);
