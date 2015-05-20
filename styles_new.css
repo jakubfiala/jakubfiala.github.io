@@ -63,48 +63,6 @@ a:visited {
 	display: none;
 }
 
-@keyframes fadeOut {
-	0% {
-		display: inline-block;
-		opacity: 1;
-		width: 100%;
-		height: 100%;
-	}
-	99% {
-		display: none;
-		opacity: 0;
-		width: 100%;
-		height: 100%;
-	}
-	100% {
-		display: none;
-		opacity: 0;
-		width: 0px;
-		height: 0px;
-	}
-}
-
-@-webkit-keyframes fadeOut {
-	0% {
-		display: inline-block;
-		opacity: 1;
-		width: 100%;
-		height: 100%;
-	}
-	99% {
-		display: none;
-		opacity: 0;
-		width: 100%;
-		height: 100%;
-	}
-	100% {
-		display: none;
-		opacity: 0;
-		width: 0px;
-		height: 0px;
-	}
-}
-
 #shade {
 	background-color: black;
 	width: 100%;
@@ -150,11 +108,14 @@ a:visited {
 }
 
 .menuitem:hover {
-	text-shadow: 0em 0em 0.2em white;
+	/*text-shadow: 0em 0em 0.2em white;*/
+	-webkit-animation: flicker 5s ease-in-out 0s infinite;
+	animation: flicker 3s ease-in-out 0s infinite;
 }
 
 .on {
-	text-shadow: 0em 0em 0.2em white;
+	-webkit-animation: flicker 5s ease-in-out 0s infinite;
+	animation: flicker 3s ease-in-out 0s infinite;
 }
 
 .sign {
@@ -233,9 +194,32 @@ p {
 	font-style: normal;
 }
 
+@keyframes flicker {
+	0% { text-shadow: 0em 0em 0.2em rgba(255,255,255,1); }
+	44% { text-shadow: 0em 0em 0.2em rgba(255,255,255,1); }
+	45% { text-shadow: 0em 0em 0.5em rgba(255,255,255,0.2); }
+	46% { text-shadow: 0em 0em 0.3em rgba(255,255,255,1); }
+	59% { text-shadow: 0em 0em 0.3em rgba(255,255,255,1); }
+	60% { text-shadow: 0em 0em 0.5em rgba(255,255,255,0.2); }
+	61% { text-shadow: 0em 0em 0.3em rgba(255,255,255,1); }
+	100% { text-shadow: 0em 0em 0.2em rgba(255,255,255,1); }
+}
+
+@-webkit-keyframes flicker {
+	0% { text-shadow: 0em 0em 0.2em rgba(255,255,255,1); }
+	44% { text-shadow: 0em 0em 0.2em rgba(255,255,255,1); }
+	45% { text-shadow: 0em 0em 0.5em rgba(255,255,255,0.2); }
+	46% { text-shadow: 0em 0em 0.3em rgba(255,255,255,1); }
+	59% { text-shadow: 0em 0em 0.3em rgba(255,255,255,1); }
+	60% { text-shadow: 0em 0em 0.5em rgba(255,255,255,0.2); }
+	61% { text-shadow: 0em 0em 0.3em rgba(255,255,255,1); }
+	100% { text-shadow: 0em 0em 0.2em rgba(255,255,255,1); }
+}
+
 .heading:hover {
 	cursor: pointer;
-	text-shadow: 0em 0em 0.2em white;
+	/*text-shadow: 0em 0em 0.2em white;*/
+
 }
 
 #grain {
