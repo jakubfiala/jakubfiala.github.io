@@ -206,28 +206,31 @@
 					gainNode.gain.setValueAtTime(0.0, ac.currentTime);
 					source.start(0);
 
-					setTimeout(function(){
-						$('#shade').css('opacity', '0');
-						gainNode.gain.setValueAtTime(0.0, ac.currentTime);
-						gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
+					//setTimeout(function(){
+						$(window).load(function() {
+							$('#shade').css('opacity', '0');
+							gainNode.gain.setValueAtTime(0.0, ac.currentTime);
+							gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
 
-						$("#audioSwitch").click(function(){
-							if($("#audioSwitch b").html() == "on") {
-								window.gainNode.gain.setValueAtTime(0, ac.currentTime);
-								$("#audioSwitch").html("static on/<b>off</b>");
-								staticOn = false;
-							}
-							else {
-								window.gainNode.gain.setValueAtTime(0, ac.currentTime);
-								window.gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime+3);
-								$("#audioSwitch").html("static <b>on</b>/off");
-								if (CanvasRenderingContext2D) requestAnimationFrame(f);
-								staticOn = true;
-							}
+							$("#audioSwitch").click(function(){
+								if($("#audioSwitch b").html() == "on") {
+									window.gainNode.gain.setValueAtTime(0, ac.currentTime);
+									$("#audioSwitch").html("static on/<b>off</b>");
+									staticOn = false;
+								}
+								else {
+									window.gainNode.gain.setValueAtTime(0, ac.currentTime);
+									window.gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime+3);
+									$("#audioSwitch").html("static <b>on</b>/off");
+									if (CanvasRenderingContext2D) requestAnimationFrame(f);
+									staticOn = true;
+								}
 
-						});
+							});
+						})
 
-					}, 2000);
+
+					//}, 2000);
 
 				});
 			}
