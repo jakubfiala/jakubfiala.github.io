@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <head>
 	<title>jakub fiala</title>
-	<meta charset="UTF-8">
 	<link rel="stylesheet" href="styles_new.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.mousewheel.min.js"></script>
+	<meta charset="UTF-8">
 	<meta property="og:image" src="images/avatar.png">
 	<meta property="og:title" content="jakub fiala" />
 	<meta property="og:description"   content="Hi, I'm Jakub. I make sound, I write code, I fill spaces."/>
@@ -109,14 +109,14 @@
 					Final dissertation work for the BMus in <a href="http://www.gold.ac.uk/ug/bmus-bsc-music-computing/">Music Computing</a> at Goldsmiths. Available in PDF at <a href="https://www.academia.edu/12443686/Ex_Caelis_Oblata_Investigating_artefacts_mystery_and_meaning_in_the_medium_of_sound_installation">academia.edu</a><br>
 					Installation piece built on research in sculptural encoding of music, exploring the human experiences of mystery, awe and religious reverence and focusing on the concepts of meaning in relics and cultural artefacts, aesthetics of monolithic art.<br><br>
 					<iframe width="100%" height="300px" src="https://www.youtube.com/embed/1JZOzsEIhG4?rel=0&showinfo=0&autohide=1&theme=light&modestbranding&controls=2" frameborder="0" allowfullscreen></iframe>
-					<span class="heading"><a href="">//The Artist's Rite &rArr;</a></span><br>
+				<span class="heading"><a href="">//The Artist's Rite &rArr;</a></span><br>
 					Spin-off performance work based on the aesthetics and technology of Ex Caelis Oblata. In this performance, the artist gradually destroys a precious sculpture of their own making.
 					// Max/MSP / Jitter / openFrameworks / Nintendo Wii / web camera / laser module / piezo microphone / modroc / cleaver / tape.<br><br>
 					<iframe width="100%" height="300px" src="https://www.youtube.com/embed/TW_-jGSbykY?rel=0&showinfo=0&autohide=1&theme=light&modestbranding&controls=2" frameborder="0" allowfullscreen></iframe>
-				<span class="heading">//Veget &rArr;</a></span><br>
+				<span class="heading">//Veget &rArr;</span><br>
 					I've collaborated with young artists from Bratislava, Slovakia, on an entire summer-spanning series
 					of events and art-focused activities for kids in the neighbourhood of Dúbravka.
-				<span class="heading">//Others &rArr;</a></span><br>
+				<span class="heading">//Others &rArr;</span><br>
 					I also occasionally work with musicians on multimedia and interactive projects, building systems in <a href="http://cycling74.com/">Max/MSP.</a>
 			</span>
 
@@ -158,6 +158,7 @@
 				setTimeout(function(){
 					$("#content-wrapper").scrollTop(0);
 					$("#" + $(self).attr("title") + "text").fadeIn();
+					window.location.hash = $(self).attr("title");
 				}, 200);
 			});
 
@@ -170,6 +171,10 @@
 	});
 
 	function init() {
+
+		if (window.location.hash) {
+			$(".menuitem[title='" + window.location.hash.substring(1) + "']").trigger("click");
+		}
 
 		$("body").css("font-size", 15);
 

@@ -192,6 +192,7 @@ p {
 
 .heading a {
 	font-style: normal;
+	cursor: pointer;
 }
 
 @keyframes flicker {
@@ -217,7 +218,6 @@ p {
 }
 
 .heading:hover {
-	cursor: pointer;
 	/*text-shadow: 0em 0em 0.2em white;*/
 
 }
