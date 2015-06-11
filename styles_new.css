@@ -22,7 +22,7 @@ body, html {
 	background-attachment: fixed;
 	background-size: cover;
 	color: white;
-	font-family: 'Alegreya Sans', sans-serif;
+	font-family: 'Alegreya Sans', sans-serif !important;
 	font-size: 15px;
 }
 
@@ -135,7 +135,7 @@ a:visited {
 	height: 85vh;
 	text-align: center;
 	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-x: visible;
 	overflow: -moz-scrollbars-none;
 	position: relative;
 	z-index: 1;
@@ -145,7 +145,7 @@ a:visited {
 #content {
 	display: inline-block;
 	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-x: visible;
 	overflow: -moz-scrollbars-none;
 	background-color: transparent;
 
