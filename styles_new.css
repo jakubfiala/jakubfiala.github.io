@@ -83,6 +83,8 @@ a:visited {
 	display: -moz-flex;
 	justify-content: center;
     align-items: center;
+	-webkit-justify-content: center;
+    -webkit-align-items: center;
 }
 
 #menu {
@@ -100,9 +102,11 @@ a:visited {
 	display: -webkit-flex;
 	display: -moz-flex;
 	justify-content: center;
+	-webkit-justify-content: center;
 	-webkit-flex-direction: row;
     flex-direction: row;
     align-items: center;
+    -webkit-align-items: center;
 }
 
 .menuitem {
@@ -168,9 +172,11 @@ a:visited {
 	display: -webkit-flex;
 	display: -moz-flex;
 	justify-content: center;
+	-webkit-justify-content: center;
 	-webkit-flex-direction: column;
     flex-direction: column;
     align-items: center;
+    -webkit-align-items: center;
 }
 
 .hl {
