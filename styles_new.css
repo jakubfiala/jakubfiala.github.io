@@ -233,6 +233,11 @@ a:visited {
 	#content p {
 		width: 90vw;
 		max-width: none;
+		font-size: 2.1em;
+	}
+
+	#introtext {
+		font-size: 1.5em !important;
 	}
 
 	.menuitem {
