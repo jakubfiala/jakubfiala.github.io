@@ -73,8 +73,8 @@ a:visited {
 	display: inline-block;
 	z-index: 3;
 	opacity: 1;
-	transition: opacity 3s;
-	-webkit-transition: opacity 3s;
+	transition: opacity 5s;
+	-webkit-transition: opacity 5s;
 	pointer-events: none;
 	display: flex;
 	display: -ms-flexbox;
