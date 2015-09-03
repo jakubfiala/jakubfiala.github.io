@@ -40,6 +40,15 @@ footer {
 	z-index: 2;
 }
 
+::-moz-selection {
+	text-shadow: 0em 0em 0.2em white;
+	text-decoration: underline;
+}
+::selection {
+	text-shadow: 0em 0em 0.2em white;
+	text-decoration: underline;
+}
+
 a {
 	color: white;
 	font-style: italic;
