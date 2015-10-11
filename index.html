@@ -204,6 +204,21 @@
 		$(".contenttext").hide();
 		$("#introtext").show();
 
+		if (!!navigator.userAgent.match("9.0 Safari")) {
+			$("#shade").css({
+				'background-color': 'transparent',
+				'-webkit-backdrop-filter': 'blur(50px)'
+			});
+
+			setTimeout(function(){
+				$("#shade").css({
+					'transition': '-webkit-backdrop-filter 5s ease-out, opacity 5s ease-out'
+				});
+			},50);
+
+			$("#loader").css('display','none');
+		}
+
 		window.staticOn = true;
 
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -237,7 +252,9 @@
 						$('body').css("background-repeat","no-repeat");
 						$('body').css("background-attachment","fixed");
 						if (CanvasRenderingContext2D) requestAnimationFrame(f);
-						$('#shade').css('opacity', '0');
+						if (!!navigator.userAgent.match("9.0 Safari")) $('#shade').css({'-webkit-backdrop-filter': 'blur(0px)'});
+						else $('#shade').css({'opacity': '0'});
+
 						gainNode.gain.setValueAtTime(0.0, ac.currentTime);
 						gainNode.gain.linearRampToValueAtTime(0.3, ac.currentTime + 5);
 
