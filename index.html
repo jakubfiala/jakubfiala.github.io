@@ -58,7 +58,7 @@
 				<br><br>
 				<iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3931549816/size=small/bgcol=ffffff/linkcol=333333/transparent=true/" seamless><a href="http://theydonboys.bandcamp.com/album/two-consecutive-songs">Two Consecutive Songs by theydon boys</a></iframe>
 				<span class="heading"><a target="_blank" href="http://www.anamendes.com/performance/map-series/">//Map Series &rArr;</a></span><br>
-				Large-scale sound design/compositional work for performance artist <a target="_blank" href="http://anamendes.com">Ana Mendes.</a><br> Presented in Berlin, Manchester and London.
+				Large-scale sound design/compositional work for performance artist <a target="_blank" href="http://anamendes.com">Ana Mendes.</a><br> Presented in Berlin, Manchester and London. To be performed live at the <a href="http://lintruinvaders.tumblr.com/">L&apos;intru &mdash; Invaders</a> show at Rich Mix London in Dec. 2015.<br>
 				Field recording / stitching machines / Ableton Live.<br><br>
 				<span class="heading"><a target="_blank" href="http://www.anamendes.com/video/this-is-my-god/">//Das ist Mein Gott &rArr;</a></span><br>
 				Soundtracks for a series of short films by Ana Mendes.<br> Exhibited in Vienna, Berlin.
@@ -296,54 +296,8 @@
 
 
 </script>
-
+<canvas id="grain-block"></canvas>
 <!-- GRAIN SCRIPT -->
-<script type="text/javascript">
-	var canvas = $("#grain")[0];
-	canvas.height = $(window).height();
-	canvas.width = $(window).width();
-	var c = canvas.getContext('2d');
-
-	var imageData = c.createImageData($(window).width()/4, $(window).height()/4);
-
-	var f = function() {
-
-		if (staticOn) {
-			for (var i = 0; i < imageData.data.length; i += 4) {
-				var n = Math.round(Math.random()*110);
-				for (var j = 0; j < 4; j++) {
-					imageData.data[i+j] = n;
-				}
-			}
-
-			//not very elegant, is it? didn't have time ...
-			c.putImageData(imageData, 0, 0);
-
-			c.putImageData(imageData, 0, $(window).height()/4);
-			c.putImageData(imageData, $(window).width()/4, 0);
-			c.putImageData(imageData, $(window).width()/4, $(window).height()/4);
-
-			c.putImageData(imageData, 0, $(window).height()/2);
-			c.putImageData(imageData, $(window).width()/2, 0);
-			c.putImageData(imageData, $(window).width()/2, $(window).height()/2);
-
-			c.putImageData(imageData, 0, $(window).height()*0.75);
-			c.putImageData(imageData, $(window).width()*0.75, 0);
-			c.putImageData(imageData, $(window).width()*0.75, $(window).height()*0.75);
-
-			c.putImageData(imageData, $(window).width()/4, $(window).height()*0.75);
-			c.putImageData(imageData, $(window).width()/2, $(window).height()*0.75);
-			c.putImageData(imageData, $(window).width()*0.75, $(window).height()/4);
-			c.putImageData(imageData, $(window).width()*0.75, $(window).height()/2);
-			c.putImageData(imageData, $(window).width()/4, $(window).height()/2);
-			c.putImageData(imageData, $(window).width()/2, $(window).height()/4);
-
-
-
-			setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
-		}
-	};
-
-</script>
+<script type="text/javascript" src="scripts/grain.js"></script>
 
 </body>
