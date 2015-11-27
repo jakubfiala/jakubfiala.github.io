@@ -168,26 +168,35 @@
 	var currentText = ""
 
 	$(".menuitem:not(.blog)").each(function() {
+
 		var self = this;
 
 		$(self).click(function(){
-			$(".menuitem").removeClass("on");
+
+			$(".menuitem:not(.blog)").removeClass("on");
 			$(self).addClass("on");
 
 			if (currentText.length) {
-				$("#" + currentText + "text").removeClass('visible');
+
+
+				console.log($("#" + currentText + "text"))
 				$("#" + currentText + "text").one('transitionend webkitTransitionEnd mozTransitionEnd oTransitionEnd', function(){
+					console.log('clickd')
+					$("#" + currentText + "text").css("display","none");
 					currentText = $(self).attr("title")
 					console.log(currentText)
 					$("#content-wrapper").scrollTop(0);
 					$("#" + currentText + "text").addClass('visible');
+					$("#" + currentText + "text").css("display","block");
 					window.location.hash = $(self).attr("title");
 				})
+				$("#" + currentText + "text").removeClass('visible');
 			}
 			else {
 				currentText = $(self).attr("title")
 				$("#content-wrapper").scrollTop(0);
 				$("#" + currentText + "text").addClass('visible');
+				$("#" + currentText + "text").css("display","block");
 				window.location.hash = $(self).attr("title");
 			}
 

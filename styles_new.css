@@ -285,7 +285,6 @@ a:visited {
 }
 
 .contenttext.visible {
-	display: block;
 	opacity: 1;
 }
 
