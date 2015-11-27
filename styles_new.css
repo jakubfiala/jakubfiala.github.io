@@ -143,6 +143,10 @@ a:visited {
 	animation: flicker 3s ease-in-out 0s infinite;
 }
 
+.menuitem a {
+	font-style: normal;
+}
+
 .on {
 	-webkit-animation: flicker 5s ease-in-out 0s infinite;
 	animation: flicker 3s ease-in-out 0s infinite;
@@ -198,7 +202,6 @@ a:visited {
 
 #content p {
 	width: 70vw;
-	display: block;
 	max-width: 500px;
 	padding: 20px;
 	line-height: auto;
@@ -275,7 +278,17 @@ a:visited {
 	text-align: center;
 	text-align: justify;
 	margin-bottom: 20vh;
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+	-webkit-transition: opacity 0.3s;
 }
+
+.contenttext.visible {
+	display: block;
+	opacity: 1;
+}
+
 
 .heading {
 	margin-top: 3vh;

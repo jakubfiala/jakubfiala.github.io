@@ -38,6 +38,7 @@
 	<span class="menuitem" title="sound">SOUND</span>
 	<span class="menuitem" title="code">CODE</span>
 	<span class="menuitem" title="space">SPACE</span>
+	<span class="menuitem blog" title="blog"><a href="http://fiala.uk/notes" target="_blank">BLOG</a></span>
 </div>
 
 
@@ -164,20 +165,31 @@
 
 <script>
 	var streams = [];
+	var currentText = ""
 
-	$(".menuitem").each(function() {
+	$(".menuitem:not(.blog)").each(function() {
 		var self = this;
 
 		$(self).click(function(){
 			$(".menuitem").removeClass("on");
 			$(self).addClass("on");
-			$(".contenttext").fadeOut(300, function(){
-				setTimeout(function(){
+
+			if (currentText.length) {
+				$("#" + currentText + "text").removeClass('visible');
+				$("#" + currentText + "text").one('transitionend webkitTransitionEnd mozTransitionEnd oTransitionEnd', function(){
+					currentText = $(self).attr("title")
+					console.log(currentText)
 					$("#content-wrapper").scrollTop(0);
-					$("#" + $(self).attr("title") + "text").fadeIn();
+					$("#" + currentText + "text").addClass('visible');
 					window.location.hash = $(self).attr("title");
-				}, 200);
-			});
+				})
+			}
+			else {
+				currentText = $(self).attr("title")
+				$("#content-wrapper").scrollTop(0);
+				$("#" + currentText + "text").addClass('visible');
+				window.location.hash = $(self).attr("title");
+			}
 
 			var bgno = Math.round(Math.random()*(7 - 1) + 1);
 			$('body').css("background","url('images/bg" + bgno + ".jpg')");
@@ -186,6 +198,8 @@
 			$('body').css("background-attachment","fixed");
 		});
 	});
+
+
 
 	function init() {
 
@@ -201,7 +215,7 @@
 		    $(this).scrollTop($(this).scrollTop() + ((event.deltaY * event.deltaFactor) * -1));
 		 });
 
-		$(".contenttext").hide();
+		//$(".contenttext").hide();
 		$("#introtext").show();
 
 		if (!!navigator.userAgent.match("9.0 Safari")) {
