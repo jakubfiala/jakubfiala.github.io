@@ -44,8 +44,8 @@
 	gb.width = window.innerWidth/divisions;
 	gb.height = window.innerHeight/divisions;
 
-	//initialize what we need: grain size scaled to DPR, brightness scaled to UInt8, pixel container, and the increment for positioning blocks
-	grainSize = Math.floor(grainSize*window.devicePixelRatio);
+	//initialize what we need: grain size -x-scaled to DPR-x-, brightness scaled to UInt8, pixel container, and the increment for positioning blocks
+	// grainSize = Math.floor(grainSize*window.devicePixelRatio);
 	brightness = brightness*255;
 	var imageData = c.createImageData(window.innerWidth/divisions, window.innerHeight/divisions);
 	var increment = 1/divisions;
@@ -74,7 +74,7 @@
 					c.drawImage(gb, window.innerWidth*x, window.innerHeight*y);
 
 			//wait for 1s / [pulse]Hz, to give the renderer a break
-			setTimeout(function(){ requestAnimationFrame(f); }, 1000/25);
+			setTimeout(function(){ requestAnimationFrame(f); }, 1000/pulse);
 		}
 	};
 
