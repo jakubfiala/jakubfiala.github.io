@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 	<title>jakub fiala</title>
-	<link rel="stylesheet" href="styles_new.css">
-	<link rel="stylesheet" href="scp/css/sc-player-red.css" type="text/css">
+	<link rel="stylesheet" href="styles.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.mousewheel.min.js"></script>
 	<meta charset="UTF-8">
@@ -36,6 +35,20 @@
 </canvas>
 
 <div id="menu">
+	<p id="introtext">
+		<img src="images/avatar.png"><br><br>
+		<span>
+			Hi, I'm Jakub. I make sound, I write code, I build spaces.<br><br>
+			twitter ~ <a target="_blank" href="http://twitter.com/fiala__">@fiala__</a><br>
+			github ~ <a target="_blank" href="http://github.com/jakubfiala">jakubfiala</a><br>
+			soundcloud ~ <a target="_blank" href="http://soundcloud.com/theydonboys">theydonboys</a><br>
+			bandcamp ~ <a target="_blank" href="http://theydonboys.bandcamp.com">theydonboys</a><br>
+			linkedin ~ <a target="_blank" href="http://lnkd.in/a_ZUvF">Jakub Fiala</a><br>
+			vimeo ~ <a target="_blank" href="http://vimeo.com/fiala">fiala</a><br>
+			<br>
+			<span style="font-size:30px">~</span>
+		</span>
+	</p>
 	<span class="menuitem" title="sound">SOUND</span>
 	<span class="menuitem" title="code">CODE</span>
 	<span class="menuitem" title="space">SPACE</span>
@@ -44,6 +57,10 @@
 
 
 <div id="content-wrapper">
+	<div class="back-bar">
+		<button class="back-button">&larr;</button>
+		<span class="section-name">SOUND</span>
+	</div>
 	<div id="content">
 		<p id="soundtext" class="contenttext">
 			<span>
@@ -154,20 +171,6 @@
 			</span>
 
 		</p>
-		<p id="introtext">
-			<img src="images/avatar.png"><br><br>
-			<span>
-				Hi, I'm Jakub. I make sound, I write code, I fill spaces.<br><br>
-				twitter ~ <a target="_blank" href="http://twitter.com/fiala__">@fiala__</a><br>
-				github ~ <a target="_blank" href="http://github.com/jakubfiala">jakubfiala</a><br>
-				soundcloud ~ <a target="_blank" href="http://soundcloud.com/theydonboys">theydonboys</a><br>
-				bandcamp ~ <a target="_blank" href="http://theydonboys.bandcamp.com">theydonboys</a><br>
-				linkedin ~ <a target="_blank" href="http://lnkd.in/a_ZUvF">Jakub Fiala</a><br>
-				vimeo ~ <a target="_blank" href="http://vimeo.com/fiala">fiala</a><br>
-				<br>
-				<span style="font-size:30px">~</span>
-			</span>
-		</p>
 		<br><br>
 	</div>
 </div>
@@ -181,6 +184,20 @@
 <script>
 	var streams = [];
 	var currentText = ""
+
+	function removeHash () {
+		history.pushState("", document.title, window.location.pathname
+		+ window.location.search);
+	}
+
+	$(".back-button").click(function() {
+		$('body').animate({
+			scrollLeft: 0,
+			scrollTop: 0
+		}, 300);
+
+		removeHash();
+	})
 
 	$(".menuitem:not(.blog)").each(function() {
 
@@ -215,6 +232,13 @@
 				window.location.hash = $(self).attr("title");
 			}
 
+			$('body').animate({
+				scrollLeft: $(window).width(),
+				scrollTop: 0
+			}, 300);
+
+			$('.section-name').text($(self).text())
+
 			var bgno = Math.round(Math.random()*(7 - 1) + 1);
 			$('body').css("background","url('images/bg" + bgno + ".jpg')");
 			$('body').css("background-size","cover");
@@ -242,7 +266,7 @@
 		//$(".contenttext").hide();
 		$("#introtext").show();
 
-		if (!!navigator.userAgent.match("9.0 Safari")) {
+		if (!!navigator.userAgent.match(/Safari/g) && !!navigator.userAgent.match(/9\./g)) {
 			$("#shade").css({
 				'background-color': 'transparent',
 				'-webkit-backdrop-filter': 'blur(50px)'
@@ -290,7 +314,7 @@
 						$('body').css("background-repeat","no-repeat");
 						$('body').css("background-attachment","fixed");
 						if (CanvasRenderingContext2D) requestAnimationFrame(f);
-						if (!!navigator.userAgent.match("9.0 Safari")) $('#shade').css({'-webkit-backdrop-filter': 'blur(0px)'});
+						if (!!navigator.userAgent.match(/Safari/g) && !!navigator.userAgent.match(/9\./g)) $('#shade').css({'-webkit-backdrop-filter': 'blur(0px)'});
 						else $('#shade').css({'opacity': '0'});
 
 						gainNode.gain.setValueAtTime(0.0, ac.currentTime);
