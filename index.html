@@ -7,10 +7,11 @@
 	<meta charset="UTF-8">
 	<meta property="og:image" src="images/avatar.png">
 	<meta property="og:title" content="jakub fiala" />
-	<meta property="og:description"   content="Hi, I'm Jakub. I make sound, I write code, I fill spaces."/>
+	<meta property="og:description"   content="Hi, I'm Jakub. I make sound, I write code, I build spaces."/>
 	<meta property="og:url" content="https://fiala.uk/">
 	<meta name="title" content="jakub fiala" />
-	<meta name="description" content="Hi, I'm Jakub. I make sound, I write code, I fill spaces." />
+	<meta name="description" content="Hi, I'm Jakub. I make sound, I write code, I build spaces." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="image_src" href="images/avatar.png" />
 	<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
 	<link rel="canonical" href="https://fiala.uk">
@@ -197,7 +198,7 @@
 			scrollLeft: 0,
 			scrollTop: 0
 		}, 300);
-
+		$(".menuitem:not(.blog)").removeClass("on");
 		removeHash();
 	})
 
