@@ -148,6 +148,7 @@ a:visited {
 
 .menuitem a {
 	font-style: normal;
+	font-weight: inherit;
 }
 
 .on {
