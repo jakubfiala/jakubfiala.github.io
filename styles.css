@@ -26,6 +26,7 @@ body {
 	-webkit-flex-direction: row;
 	justify-content: stretch;
 	-webkit-justify-content: stretch;
+	box-shadow: rgba(0, 0, 0, 0.9) 0px 50px 800px inset;
 }
 
 #content-wrapper::-webkit-scrollbar { width: 0 !important; }
