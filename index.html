@@ -246,6 +246,7 @@
 			$('body').css("background","url('images/bg" + bgno + ".jpg')");
 			$('body').css("background-size","cover");
 			$('body').css("background-repeat","no-repeat");
+			$('body').css("background-position","top left");
 			$('body').css("background-attachment","fixed");
 		});
 	});
@@ -315,6 +316,7 @@
 						$("body").css("background","url(" + bgImg.src + ")");
 						$('body').css("background-size","cover");
 						$('body').css("background-repeat","no-repeat");
+						$('body').css("background-position","top left");
 						$('body').css("background-attachment","fixed");
 						if (CanvasRenderingContext2D) requestAnimationFrame(renderGrain);
 						if (!!navigator.userAgent.match(/Safari/g) && !!navigator.userAgent.match(/9\./g)) $('#shade').css({'-webkit-backdrop-filter': 'blur(0px)'});

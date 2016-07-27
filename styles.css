@@ -6,8 +6,10 @@ body, html {
 	background-position: top left;
 	background-attachment: fixed;
 	background-size: cover;
+	box-shadow: rgba(0, 0, 0, 0.9) 0px 50px 1000px inset;
 	color: white;
 	font-family: 'Alegreya Sans', sans-serif !important;
+	font-weight: lighter;
 	font-size: 15px;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -54,7 +56,8 @@ footer {
 
 a {
 	color: white;
-	font-style: italic;
+	/*font-style: italic;*/
+	font-weight: bold;
 	text-decoration: none;
 }
 
