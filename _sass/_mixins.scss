@@ -11,6 +11,19 @@
         80% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
         100% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
     }
+
+    @-webkit-keyframes flicker_#{$shadowType} {
+        0% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+        20% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+        23% { #{$shadowType}-shadow: 0 0 10px rgba(244, 166, 30, 0.6), 0 0 15px rgba(244, 166, 30, 0.6), 0 0 70px rgba(244, 166, 30, 0.6); }
+        24% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+        25% { #{$shadowType}-shadow: 0 0 10px rgba(244, 166, 30, 0.6), 0 0 15px rgba(244, 166, 30, 0.6), 0 0 70px rgba(244, 166, 30, 0.6); }
+        26% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+        78% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+        79% { #{$shadowType}-shadow: 0 0 10px rgba(244, 166, 30, 0.6), 0 0 15px rgba(244, 166, 30, 0.6), 0 0 70px rgba(244, 166, 30, 0.6); }
+        80% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+        100% { #{$shadowType}-shadow: 0 0 10px #F4A61E, 0 0 15px #F4A61E, 0 0 70px #F4A61E; }
+    }
 }
 
 @mixin visually-hidden() { /*https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html*/

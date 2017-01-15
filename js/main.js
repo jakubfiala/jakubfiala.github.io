@@ -89,7 +89,12 @@ document.querySelector('.neon').addEventListener('click', (e) => {
 document.addEventListener('visibilitychange', e => {
     if (requestAnimationFrame) {
         shaderStartTime = performance.now();
-        document.hidden || requestAnimationFrame(startSnow);
+        if (supportsWebGL()) {
+            document.hidden || requestAnimationFrame(startSnow);
+        }
+        else {
+            console.info('It seems your browser doesn\'t support WebGL.', e);
+        }
     }
 });
 

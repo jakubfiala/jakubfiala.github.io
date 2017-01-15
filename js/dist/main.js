@@ -195,7 +195,11 @@
 	document.addEventListener('visibilitychange', function (e) {
 	    if (requestAnimationFrame) {
 	        shaderStartTime = performance.now();
-	        document.hidden || requestAnimationFrame(startSnow);
+	        if ((0, _supportsWebgl2.default)()) {
+	            document.hidden || requestAnimationFrame(startSnow);
+	        } else {
+	            console.info('It seems your browser doesn\'t support WebGL.', e);
+	        }
 	    }
 	});
 

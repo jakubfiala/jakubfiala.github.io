@@ -177,7 +177,6 @@ a:hover, a:focus, a:active {
 
 a.link--active {
     text-shadow: 0 0 10px $themeColor, 0 0 15px $themeColor, 0 0 70px $themeColor;
-    animation: flicker_text 4s infinite;
 }
 
 canvas {
