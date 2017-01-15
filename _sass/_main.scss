@@ -63,6 +63,7 @@ header {
         .intro & {
             opacity: 0;
             animation: fadeIn 0.5s forwards;
+            -webkit-animation-fill-mode: forwards;
         }
 
         &.link--active {
@@ -113,6 +114,7 @@ nav {
     .intro & {
         transform: translateY(calc(50vh - 1em));
         animation: backToTop 1s 2s forwards;
+        -webkit-animation-fill-mode: forwards;
     }
 
     &[aria-expanded='true'] {
@@ -158,6 +160,7 @@ article, footer {
         animation: rotate 10s linear infinite forwards;
         animation-play-state: paused;
         vertical-align: text-top;
+        -webkit-animation-fill-mode: forwards;
     }
 
     a:hover, a:focus, a:active {

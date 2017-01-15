@@ -17,8 +17,8 @@ var State = {
 };
 
 var shaderStartTime = 0;
-const MINIMUM_FPS = 6;
-const MAX_JANK_FRAMES = 10;
+const MINIMUM_FPS = 50;
+const MAX_JANK_FRAMES = 5;
 let framesUnderMinFpsCount = 0;
 
 const startSnow = (time) => {

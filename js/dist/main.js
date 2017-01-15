@@ -77,8 +77,8 @@
 	};
 
 	var shaderStartTime = 0;
-	var MINIMUM_FPS = 6;
-	var MAX_JANK_FRAMES = 10;
+	var MINIMUM_FPS = 50;
+	var MAX_JANK_FRAMES = 5;
 	var framesUnderMinFpsCount = 0;
 
 	var startSnow = function startSnow(time) {

@@ -24,6 +24,10 @@
     overflow: hidden;
 }
 
+.visually-hidden {
+    @include visually-hidden;
+}
+
 @mixin undo-visually-hidden() {
     clip: auto;
     height: auto;
