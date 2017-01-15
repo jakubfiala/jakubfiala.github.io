@@ -1,0 +1,26 @@
+<nav role='navigation'>
+    <li id="header-home-link" class="header__links__link header__home-link {% unless page.title %}link--active{% endunless %}{% if page.title == 'hi' %}link--active{% endif %}
+    ">
+        Hi, I'm <a href="/jakub.html" class="{% unless page.title %}link--active{% endunless %}{% if page.title == 'hi' %}link--active{% endif %}">Jakub.</a>
+        <a class="header__expand-btn" aria-expanded="false" aria-controls="header-links header-home-link">+</a>
+    </li>
+
+    <ul id="header-links" class="header__links">
+
+        <li class="header__links__link header__links__link--sound {% if page.title == 'sound' %}link--active{% endif %}">
+            I make <a href="/sound.html" class="{% if page.title == 'sound' %}link--active{% endif %}">sound,</a>
+            <a class="header__expand-btn" aria-expanded="false" aria-controls="header-links header-home-link">+</a>
+        </li>
+
+        <li class="header__links__link header__links__link--code {% if page.title == 'code' %}link--active{% endif %}">
+            I write <a href="/code.html" class="{% if page.title == 'code' %}link--active{% endif %}">code,</a>
+            <a class="header__expand-btn" aria-expanded="false" aria-controls="header-links header-home-link">+</a>
+        </li>
+
+        <li class="header__links__link header__links__link--space {% if page.title == 'space' %}link--active{% endif %}">
+            I build <a href="/space.html" class="{% if page.title == 'space' %}link--active{% endif %}">spaces.</a>
+            <a class="header__expand-btn" aria-expanded="false" aria-controls="header-links header-home-link">+</a>
+        </li>
+
+    </ul>
+</nav>

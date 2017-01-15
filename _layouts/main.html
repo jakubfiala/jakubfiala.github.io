@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {% include _head.html %}
+</head>
+
+<body class="{% unless page.title %}intro{% endunless %}">
+
+<canvas id="snow">
+</canvas>
+
+<header aria-label='Header with navigation'>
+    {% include _nav.html %}
+</header>
+
+<main aria-label='Content' role='main'>
+    <article lang="en" role='article'>
+        {{ content }}
+    </article>
+
+    {% include _neon.html %}
+
+    {% include _custom-footer.html %}
+</main>
+
+</body>
+
+{% include _shaders.html %}
+
+<script defer type="text/javascript" src="/js/dist/main.js">
+</script>
+
+</html>
