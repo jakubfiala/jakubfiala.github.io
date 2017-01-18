@@ -20,6 +20,7 @@ module.exports = {
         ]
     },
     plugins: [
+	new webpack.optimize.UglifyJsPlugin(),
         new webpack.BannerPlugin('---\n---\n', {
             raw: true
         })
