@@ -13,14 +13,17 @@ html, body {
 html {
     background: black;
     -webkit-font-smoothing: antialiased;
-    text-rendering:  optimizeLegibility;
+    font-size: 18px;
+    line-height: 1.563;
 }
 
 body {
     color: white;
     font-family: 'Alegreya', serif;
-    font-size: 16px;
     -moz-osx-font-smoothing: grayscale;
+    @media print {
+        color: black;
+    }
 }
 
 ::selection {
@@ -40,15 +43,20 @@ header {
     background: -webkit-linear-gradient(black, transparent); /* For Safari 5.1 to 6.0 */
     background: linear-gradient(black, transparent); /* Standard syntax */
     box-sizing: border-box;
-    font-size: 36px;
+    font-size: 1.953rem;
     font-weight: bold;
     margin: 0;
     min-height: 2em;
     padding: $body-padding 0;
     position: fixed;
     text-align: center;
+    text-rendering:  optimizeLegibility;
     width: 100%;
     z-index: 2;
+
+    @media print {
+        position: static;
+    }
 
     ul,
     li {
@@ -198,18 +206,35 @@ main {
 }
 
 article {
-    font-size: 18px;
     padding: $body-padding;
-    padding-top: $body-padding + 48px + 25px;
+    padding-top: 5.96rem;
     hyphens: auto;
     -webkit-hyphens: auto;
     overflow-wrap: break-word;
+
+    @media print {
+        padding-top: 0;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+p + p,
+p + iframe {
+    margin-top: 1.563rem;
 }
 
 footer {
+    font-size: 0.8rem;
     padding: 0 $body-padding;
     text-align: center;
-    margin: 2rem 0;
+    margin: 3.052rem 0;
+
+    hr {
+        margin: 3.052rem auto 1.25rem auto;
+    }
 }
 
 ol {
@@ -222,8 +247,7 @@ ol {
 
 hr {
     border-color: $themeColor;
-    margin-left: 0;
-    margin-top: 2em;
+    margin: 3.052rem 0 0.64rem 0;
     width: 7.5ch;
 
     & + h2 {
@@ -233,10 +257,8 @@ hr {
 
 h2 {
     color: $themeColor;
-    margin-bottom: 0.25em;
-    & + * {
-        margin-top: 0.5em;
-    }
+    margin-bottom: 0.64rem;
+    font-size: 1.563rem;
 }
 
 iframe {
@@ -250,12 +272,12 @@ figure, img {
     border-bottom: solid 3px $themeColor;
     box-sizing: border-box;
     position: relative;
+    margin: 1.563rem 0 0 0;
 }
 
 figure {
     height: 0;
     left: -$body-padding;
-    margin: 0;
     padding-bottom: 51%;
     width: calc(100% + #{2 * $body-padding});
     &:focus {
@@ -291,9 +313,13 @@ img {
 
 
 @media all and (min-width: 768px) {
+
+    body, html {
+        font-size: 24px;
+    }
+
     header {
         padding: $body-padding;
-        font-size: 48px;
 
         li {
             @include undo-visually-hidden;
@@ -323,7 +349,6 @@ img {
     }
 
     article {
-        font-size: 24px;
         padding-left: 0;
         padding-right: 0;
         position: relative;

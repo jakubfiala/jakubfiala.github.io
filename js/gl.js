@@ -1,5 +1,5 @@
 let transparency = 1;
-const RESOLUTION_SCALING_FACTOR = 0.01;
+const RESOLUTION_SCALING_FACTOR = 2;
 
 const gl = twgl.getWebGLContext(document.getElementById("snow"));
 let programInfo = twgl.createProgramInfo(gl, ["vs", "fs"]);

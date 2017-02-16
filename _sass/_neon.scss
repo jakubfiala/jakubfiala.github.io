@@ -8,6 +8,9 @@
     transition: opacity 0.5s;
     opacity: 0;
     cursor: pointer;
+    @media print {
+        display: none;
+    }
 }
 
 .neon__component {
