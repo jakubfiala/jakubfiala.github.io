@@ -3,7 +3,7 @@ title: "code"
 layout: main
 ---
 
-I specialise in audiovisual programming on the Web. I write mainly JavaScript, but also Python, SASS, C++, Swift, and Java. My past clients include [XL Recordings](http://xlrecordings.com/), [KnowledgeRocks](https://knowledgerocks.com/), [Synervoz](https://www.linkedin.com/company/synervoz-communications-inc.) and [greyworld](http://greyworld.org/).
+I specialise in audiovisual programming on the Web. I write mainly *modern JavaScript*, but also *Python, SASS, C++, Swift* and *Rust*. My past clients include [XL Recordings](http://xlrecordings.com/), [KnowledgeRocks](https://knowledgerocks.com/), [Synervoz](https://www.linkedin.com/company/synervoz-communications-inc.) and [greyworld](http://greyworld.org/).
 
 Here's a selection of my projects, there's more on [github.](https://github.com/jakubfiala)
 
