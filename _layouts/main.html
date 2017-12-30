@@ -7,8 +7,10 @@
 
 <body class="{% unless page.title %}intro{% endunless %}">
 
+<video class="video-background" src="/static/video/bg.mp4" autoplay loop></video>
 <canvas id="snow" aria-hidden="true">
 </canvas>
+<div class="video-overlay"></div>
 
 <header aria-label='Header with navigation'>
     {% include _nav.html %}

@@ -7,6 +7,14 @@ I make music as [Theydon Boys](http://theydonboys.bandcamp.com), and I've worked
 
 ---
 
+## [A walk with Anna](https://weareacr.bandcamp.com/album/a-walk-with-anna)
+
+<iframe style="height: 47px;" src="https://bandcamp.com/EmbeddedPlayer/album=1883687186/size=small/bgcol=333333/linkcol=F4A61E/transparent=true/" seamless><a href="http://weareacr.bandcamp.com/album/a-walk-with-anna">a walk with anna by theydon boys</a></iframe>
+
+My first full cassette release. Received very positive reviews from [Gin and Platonic](http://ginandplatonic.net/?p=3171)(Czech) and [Ondrej Zajac](https://dennikn.sk/blog/trochu-ine-najlepsie-albumy/)(Slovak).
+
+---
+
 ## [Two Consecutive Songs](http://theydonboys.bandcamp.com/album/two-consecutive-songs)
 
 <iframe style="height: 47px;" src="https://bandcamp.com/EmbeddedPlayer/album=3931549816/size=small/bgcol=333333/linkcol=F4A61E/transparent=true/" seamless><a href="http://theydonboys.bandcamp.com/album/two-consecutive-songs">Two Consecutive Songs by theydon boys</a></iframe>

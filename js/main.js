@@ -1,5 +1,5 @@
 import { initializeNeon } from './neon';
-import { renderShader } from './gl';
+// import { renderShader } from './gl';
 import supportsWebGL from './supports-webgl';
 import jankMessage from './jankMessage';
 
@@ -45,11 +45,11 @@ const startSnow = (time) => {
 }
 
 const setupUI = (e) => {
-    // start the cool bits
-    if ('requestAnimationFrame' in window && 'performance' in window) {
-        shaderStartTime = performance.now();
-        requestAnimationFrame(startSnow);
-    }
+    // // start the cool bits
+    // if ('requestAnimationFrame' in window && 'performance' in window) {
+    //     shaderStartTime = performance.now();
+    //     requestAnimationFrame(startSnow);
+    // }
 
     // make sure ARIA is happy
     if (window.innerWidth > App.smallBreakpoint) {
@@ -86,17 +86,17 @@ document.querySelector('.neon').addEventListener('click', (e) => {
     initializeNeon();
 });
 
-document.addEventListener('visibilitychange', e => {
-    if (requestAnimationFrame) {
-        shaderStartTime = performance.now();
-        if (supportsWebGL()) {
-            document.hidden || requestAnimationFrame(startSnow);
-        }
-        else {
-            console.info('It seems your browser doesn\'t support WebGL.', e);
-        }
-    }
-});
+// document.addEventListener('visibilitychange', e => {
+//     if (requestAnimationFrame) {
+//         shaderStartTime = performance.now();
+//         if (supportsWebGL()) {
+//             document.hidden || requestAnimationFrame(startSnow);
+//         }
+//         else {
+//             console.info('It seems your browser doesn\'t support WebGL.', e);
+//         }
+//     }
+// });
 
 document.addEventListener('DOMContentLoaded', e => {
     if (App.isIntro) {

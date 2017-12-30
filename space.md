@@ -3,7 +3,7 @@ title: "space"
 layout: main
 ---
 
-Physical space is the foundation of creation. Here's my work in the media of *installation,* and *live performance.*
+Here's my work in the media of *3D graphics*, *installation,* and *live performance*.
 
 ---
 
@@ -35,3 +35,15 @@ A new series of visual experiments with wire mesh and laser light, collaboration
 <figure tabindex="0">
   <iframe src="https://player.vimeo.com/video/130360406?byline=0&amp;portrait=0&amp;color=ffffff&autoplay=0&amp;title=0&amp;badge=0" width="100%" height="300px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </figure>
+
+---
+
+## [Generative 3D art](https://www.instagram.com/fiala__/)
+
+<section>
+<img src="/static/img/xmas.png" alt="an example of my generative 3D models" />
+</section>
+
+I occasionally make procedurally generated shapes on a black background. See more on my [instagram](https://www.instagram.com/fiala__/).
+
+
