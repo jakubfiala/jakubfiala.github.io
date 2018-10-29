@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code | Jakub Fiala</title>
+  <link href="https://fonts.googleapis.com/css?family=Bitter:700|Open+Sans:400,800" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script async defer type="text/javascript" src="dist/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1><a href="/" title="Home">Jakub Fiala</a></h1>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="art.html" class="nav-item">Art</a></li>
+        <li><a href="sound.html" class="nav-item">Sound</a></li>
+        <li><a href="code.html" class="nav-item nav-item--selected">Code</a></li>
+        <li><a href="publications-talks.html" class="nav-item">Publications + Talks</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <p>I specialise in audiovisual programming on the Web. I write mainly <em>modern JavaScript</em>, but also <em>Python, SASS, C++, Swift</em> and <em>Rust</em>. My past clients include <a href="http://xlrecordings.com/">XL Recordings</a>, <a href="https://knowledgerocks.com/">KnowledgeRocks</a>, <a href="https://www.linkedin.com/company/synervoz-communications-inc.">Synervoz</a> and <a href="http://greyworld.org/">greyworld</a>.</p>
+
+    <p>Some notable projects are below (more available on <a href="https://github.com/jakubfiala">GitHub</a>):</p>
+
+    <ul class="works-list">
+      <li class="works-list__item">
+        <details class="work" id="r-audio" id="r-audio">
+          <summary class="work__summary">r-audio</summary>
+          <p>
+            A library of React components for building Web Audio graphs I developed at BBC R&amp;D.
+            Aims to provide a more intuitive, declarative interface to Web Audio, making it easier
+            to build complex audio applications on the Web.
+          </p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="https://github.com/bbc/r-audio">
+              GitHub</a>
+            </li>
+            <li class="work__links-item">
+              <a href="https://medium.com/bbc-design-engineering/r-audio-declarative-reactive-and-flexible-web-audio-graphs-in-react-102c44a1c69c">
+              Blog post</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work">
+          <summary class="work__summary" id="wellcome">Wellcome.ac.uk</summary>
+          <figure>
+            <img src="assets/img/sites/wellcome.ac.uk.png" alt="Wellcome.ac.uk front page">
+          </figure>
+          <p>
+            My first project at the Wellcome Trust was the redesign of the corporate website.
+            I worked closely with UI and UX designers, content editors and management to create
+            a performant and clean front-end experience. I then focused on refactoring the legacy
+            PHP backend and creating a modular UI system for the site.
+          </p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="https://wellcome.ac.uk/">Website</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work" id="wellcome-charts">
+          <summary class="work__summary">Wellcome Interactive Charts</summary>
+          <figure>
+            <img src="assets/img/sites/wellcome-chart01.png"
+              data-gallery-src="assets/img/sites/wellcome-chart01.png"
+              data-gallery-id="wellcome-charts"
+              alt="A screen shot of a Wellcome Charts module"/>
+            <img src="assets/img/sites/wellcome-chart02.thumb.png"
+              data-gallery-src="assets/img/sites/wellcome-chart02.png"
+              data-gallery-id="wellcome-charts"
+              alt="A screen shot of a Wellcome Charts module"/>
+            <img src="assets/img/sites/wellcome-chart03.thumb.png"
+              data-gallery-src="assets/img/sites/wellcome-chart03.png"
+              data-gallery-id="wellcome-charts"
+              alt="A screen shot of a Wellcome Charts module"/>
+          </figure>
+          <p>For the annual Wellcome funding report, we decided to create reusable
+          interactive chart modules, which would improve accessibility and increase
+          transparency in publishing our funding data.</p>
+          <p>I created a custom SVG-based rendering library along with a standard
+          JSON schema for the chart data. All charts were rendered with additional markup
+          for screen readers. I also built a web-based tool for content editors to
+          create chart data from CSV files or manually.</p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="https://wellcome.ac.uk/funding/grant-funding-data-2015-2016">
+              Wellcome Grant Funding Data 2015-16</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work" id="mosaic">
+          <summary class="work__summary">Mosaic</summary>
+          <figure>
+            <img src="assets/img/sites/mosaic01.png"
+              data-gallery-src="assets/img/sites/mosaic01.png"
+              data-gallery-id="mosaic"
+              alt="A screen shot of the Mosaic website"/>
+            <img src="assets/img/sites/mosaic02.thumb.png"
+              data-gallery-src="assets/img/sites/mosaic02.png"
+              data-gallery-id="mosaic"
+              alt="A screen shot of the Mosaic website"/>
+            <img src="assets/img/sites/mosaic03.thumb.png"
+              data-gallery-src="assets/img/sites/mosaic03.png"
+              data-gallery-id="mosaic"
+              alt="A screen shot of the Mosaic website"/>
+          </figure>
+          <p>In 2017 I was the principal developer on a full redesign and re-engineering
+          of Mosaic, Wellcome's longreads publication on health, culture and society. We used an
+          unconventional technology stack with a Drupal backend serving as a publishing service,
+          and the site itself being rendered onto Amazon S3 using Dockerized rendering services,
+          SQS and Terraform.</p>
+          <p>The site itself was given a fresh look, improved accessibility, performance and
+          ever-changing generative design elements throughout.</p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="https://mosaicscience.com">
+              Mosaic website</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work" id="atrament">
+          <summary class="work__summary">atrament.js</summary>
+          <figure>
+            <img src="assets/img/atrament.png" alt="A drawing made with atrament.js">
+          </figure>
+          <p>A tiny (but fairly popular) JS library for beautiful drawing and handwriting on HTML5 Canvas. Based on a custom drawing algorithm developed for <a href="http://fiala.uk/1wall">1WALL</a>.</p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="https://github.com/jakubfiala/atrament.js">
+              GitHub</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work" id="together-science-can">
+          <summary class="work__summary">Together Science Can</summary>
+          <figure>
+            <img src="assets/img/sites/tsc.png"
+              alt="A screen shot of the Together Science Can website">
+          </figure>
+          <p>A single-page website for the Together Science Can campaign. Heavily optimised
+          background graphics combined with a performant parallax effect.</p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="https://togethersciencecan.org/">
+              Website</a>
+            </li>
+            <li class="work__links-item">
+              <a href="https://github.com/wellcometrust/together-science-can">
+              Source code</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work" id="meyda">
+          <summary class="work__summary">Meyda</summary>
+          <p>Audio feature extraction library for the Web Audio API that I built with <a href="http://hughrawlinson.me/">Hugh Rawlinson</a> and <a href="http://nevosegal.co.uk/">Nevo Segal</a>. Featured in proceedings of <a href="http://wac.ircam.fr/">the 1st Web Audio Conference</a> at IRCAM and Mozilla, Paris. Watch the WAC talk <a href="http://medias.ircam.fr/x8fbaf8">here</a>.</p>
+        </details>
+      </li>
+
+      <li class="works-list__item">
+        <details class="work">
+          <summary class="work__summary" id="wellcome">FRIK</summary>
+          <figure>
+            <img src="assets/img/frik.png" alt="FRIK front page">
+          </figure>
+          <p>
+            An audiovisual-literary web epic created by the Hungarian experimental band
+            <a href="http://dorota.hu/">Dorota</a>. I used Web Audio and hand-crafted CSS3
+            animation to build an immersive experience of the beautiful world of Frik.
+          </p>
+          <ul class="work__links" title="Related links">
+            <li class="work__links-item">
+              <a href="http://dorotafrik.com/">Website</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

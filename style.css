@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-size: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (min-width: 768px) {
+  html, body {
+    font-size: 17px;
+  }
+}
+
+html {
+  color: #101010;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0;
+}
+
+body {
+  padding: 0 1rem 1rem;
+  max-width: 768px;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 0 0 0 4.236rem;
+  }
+}
+
+h1, h2, h3, summary {
+  font-family: 'Bitter', serif;
+}
+
+#bg {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+header {
+  left: -1rem;
+  position: relative;
+  width: calc(100% + 2rem);
+}
+
+@media screen and (min-width: 330px) {
+  header {
+    position: static;
+    width: auto;
+  }
+}
+
+h1 {
+  font-size: 2.618rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4.236rem;
+    margin-top: 1.618rem;
+  }
+}
+
+h2 {
+  font-size: 2.618rem;
+  margin-top: 1.618rem;
+  margin-bottom: 0;
+}
+
+h2:before {
+  content: '– ';
+  display: inline-block;
+  margin-right: 0.3ch;
+  opacity: 0.3;
+}
+
+a, a:visited {
+  border-bottom: solid 2px #ddd;
+  color: #D93B30;
+  text-decoration: none;
+  transition: border-color 250ms;
+}
+
+a:hover {
+  border-color: currentColor;
+}
+
+h1 a {
+  color: #101010 !important;
+  border: none;
+  position: relative;
+  transition: color 250ms;
+}
+
+h1 a:hover {
+  /*background: linear-gradient(#FFFFB7 0%, #D93B30 75%, #D93B30 100%);*/
+  color: #D93B30 !important;
+}
+
+p {
+  line-height: 1.618;
+  margin: 0;
+}
+
+p + p,
+ul + p,
+ol + p {
+  margin-top: 1.236rem;
+}
+
+p + ul, p + ol {
+  margin-top: 0;
+}
+
+li {
+  margin-top: 0.236rem;
+}
+
+#site-nav {
+  font-size: 0.95rem;
+  margin-top: -0.382rem;
+  padding-left: 0.618rem;
+}
+
+@media screen and (min-width: 330px) {
+  #site-nav {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #site-nav {
+    font-size: 1.618rem;
+    margin-top: -0.618rem;
+    padding-left: 1.618rem;
+  }
+}
+
+#site-nav ul {
+  display: block;
+  list-style-type: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+#site-nav li {
+  display: inline;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  #site-nav li {
+    display: inline-block;
+  }
+}
+
+#site-nav li + li:before {
+  content: ' / ';
+  opacity: 0.3;
+}
+
+.nav-item--selected {
+  font-weight: bolder;
+}
+
+.works-list {
+  list-style-type: none;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.works-list__item + .works-list__item {
+  border-top: solid 2px #f4f4f4;
+  margin-top: 0.618rem;
+  padding-top: 0.618rem;
+}
+
+.work[open] {
+  padding-bottom: 2rem;
+}
+
+.work__summary {
+  cursor: pointer;
+  font-size: 1.382rem;
+  padding-left: 2ch;
+  text-indent: -1.7ch;
+  transition: transform 250ms;
+}
+
+.work__summary + p {
+  margin-top: 1.618rem;
+}
+
+.work__links {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.work__links-item {
+  display: inline-block;
+}
+
+.work__links-item + .work__links-item:before {
+  content: ' / ';
+  opacity: 0.3;
+}
+
+figure {
+  margin: 1.618rem -1rem 0.618rem;
+}
+
+figure img {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+figure img:not(:first-of-type) {
+  display: inline-block;
+  margin: 0.146rem 0;
+  width: 10%;
+}
+
+figcaption {
+  font-size: 0.854rem;
+  margin-top: 0.15rem;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  figure {
+    margin: 1.618rem 0 0.618rem;
+  }
+
+  figcaption {
+    padding: 0;
+  }
+}
+
+iframe {
+  border: none;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.video-embed {
+  height: 0;
+  padding-bottom: 51%;
+  position: relative;
+}
+
+.video-embed iframe {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.gallery-lightbox > .image > img {
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-lightbox > .next,
+.gallery-lightbox > .prev {
+  height: 4em !important;
+  transform: translateY(-2em);
+  width: 4em !important;
+}
+
+.gallery-lightbox > .close,
+.gallery-lightbox > .next,
+.gallery-lightbox > .prev {
+  cursor: pointer;
+  transform-origin: center center;
+  transition: transform 150ms;
+}
+
+.gallery-lightbox > .close:hover {
+  transform: scale(1.25);
+}
+
+.gallery-lightbox > .next:hover,
+.gallery-lightbox > .prev:hover {
+  transform: translateY(-1em) scale(1.25);
+}

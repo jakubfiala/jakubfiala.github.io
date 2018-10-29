@@ -1,28 +1,49 @@
 const webpack = require('webpack');
+const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = {
-    entry: "./js/main.js",
-    output: {
-        path: __dirname,
-        filename: "./js/dist/main.js"
-    },
-    devtool: 'cheap-module-source-map',
-    module: {
-        loaders: [
-              {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'babel',
-                    query: {
-                        presets: ['latest']
-                    }
-              }
-        ]
-    },
-    plugins: [
-	new webpack.optimize.UglifyJsPlugin(),
-        new webpack.BannerPlugin('---\n---\n', {
-            raw: true
-        })
+const DEV = process.env.NODE_ENV === 'development';
+
+const baseConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader?presets[]=env']
+      },
+      {
+        test: /\.glsl$/,
+        exclude: /node_modules/,
+        use: ['webpack-glsl-loader']
+      }
     ]
-}
+  }
+};
+
+const devConfig = {
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
+  },
+  entry: './index.js',
+  devtool: 'source-map',
+  mode: 'development'
+};
+
+const prodConfig = {
+  performance: { hints: false },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
+  },
+  entry: './index.js',
+  mode: 'production',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin()
+    ]
+  }
+};
+
+module.exports = Object.assign({}, baseConfig, DEV ? devConfig : prodConfig);
