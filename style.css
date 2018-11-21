@@ -70,6 +70,14 @@ h1 {
   }
 }
 
+@media print {
+  h1 {
+    display: inline-block;
+    font-size: 2.618rem;
+    vertical-align: middle;
+  }
+}
+
 h2 {
   font-size: 2.618rem;
   margin-top: 1.618rem;
@@ -145,11 +153,26 @@ li {
   }
 }
 
+@media print {
+  #site-nav {
+    display: inline-block;
+    font-size: 1.236rem;
+    margin-top: 0;
+    vertical-align: middle;
+  }
+}
+
 #site-nav ul {
   display: block;
   list-style-type: none;
   margin-top: 0;
   padding: 0;
+}
+
+@media print {
+  #site-nav ul {
+    margin-bottom: 0;
+  }
 }
 
 #site-nav li {
@@ -184,6 +207,14 @@ li {
   padding-top: 0.618rem;
 }
 
+.work {
+  page-break-inside: avoid;
+}
+
+.page--publications-talks .work {
+  page-break-inside: auto;
+}
+
 .work[open] {
   padding-bottom: 2rem;
 }
@@ -192,8 +223,15 @@ li {
   cursor: pointer;
   font-size: 1.382rem;
   padding-left: 2ch;
+  page-break-after: avoid;
   text-indent: -1.7ch;
   transition: transform 250ms;
+}
+
+@media print {
+  .work__summary::-webkit-details-marker {
+    display:none;
+  }
 }
 
 .work__summary + p {
@@ -229,6 +267,30 @@ figure img:not(:first-of-type) {
   display: inline-block;
   margin: 0.146rem 0;
   width: 10%;
+}
+
+@media print {
+  figure {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .embed--print {
+    display: block;
+  }
+
+  figure img,
+  figure img:not(:first-of-type) {
+    display: block;
+    margin: 0.146rem;
+    width: calc(33% - 2 * 0.146rem);
+  }
+
+  figure img:nth-last-child(1):first-child,
+  figure img:nth-last-child(1):first-child ~ img {
+    width: 100%;
+  }
 }
 
 figcaption {
@@ -296,4 +358,9 @@ iframe {
 .gallery-lightbox > .next:hover,
 .gallery-lightbox > .prev:hover {
   transform: translateY(-1em) scale(1.25);
+}
+
+@page {
+  margin: 2rem 4rem;
+  marks: cross;
 }
