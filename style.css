@@ -240,15 +240,15 @@ li {
 
 .work__links {
   margin: 1rem 0 0;
-  padding: 0;
+  padding: 0 0 0 1ch;
   list-style-type: none;
 }
 
 .work__links-item {
-  display: inline-block;
+  display: block;
 }
 
-.work__links-item + .work__links-item:before {
+.work__links-item:before {
   content: ' / ';
   opacity: 0.3;
 }
