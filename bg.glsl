@@ -57,6 +57,6 @@ void main() {
   float brightness = m_dist * pow(distance(mousepos, pix) * 2.0, 2.0) * pix.x;
   color = vec3(brightness * (2.5 - pix.y), brightness * pix.y * pix.x, brightness * pix.y);
 
-  vec4 final_color = vec4(color, 1.0) / (pow(pix.x, 1.0)) + pow(cos(pix.x), 0.75);
+  vec4 final_color = vec4(color, 1.0) / (pow(pix.x, 1.0)) + pow(cos(pix.x), 1.0);
   gl_FragColor = final_color;
 }

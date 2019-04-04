@@ -13,8 +13,6 @@ import gallery from 'gallery';
 import { openDeepLinked } from './components/deep-links.js';
 import fragmentShader from './bg.glsl';
 
-const canvas = document.getElementById('bg');
-
 const uniforms = {
   time: {
     type: 'f',
