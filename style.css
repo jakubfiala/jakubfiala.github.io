@@ -260,6 +260,9 @@ figure {
 figure img {
   cursor: pointer;
   display: block;
+  max-height: 60vh;
+  object-fit: contain;
+  object-position: center left;
   width: 100%;
 }
 
