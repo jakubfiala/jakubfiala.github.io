@@ -367,3 +367,9 @@ iframe {
   margin: 2rem 4rem;
   marks: cross;
 }
+
+blockquote {
+  border-left: solid .5rem #eee;
+  margin-left: 0;
+  padding-left: 1rem;
+}
