@@ -295,6 +295,7 @@ figure img {
 figure img:not(:first-of-type) {
   display: inline-block;
   margin: 0.146rem 0;
+  vertical-align: middle;
   width: 10%;
 }
 
