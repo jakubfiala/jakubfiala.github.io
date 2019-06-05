@@ -223,6 +223,7 @@ li {
   cursor: pointer;
   font-size: 1.382rem;
   padding-left: 2ch;
+  padding-right: 1ch;
   page-break-after: avoid;
   text-indent: -1.7ch;
   transition: transform 250ms;
@@ -232,6 +233,31 @@ li {
   .work__summary::-webkit-details-marker {
     display:none;
   }
+}
+
+.permalink {
+  border-bottom: none;
+  display: inline-block;
+  margin-right: -1ch;
+  opacity: 0;
+  text-indent: 0;
+  transition: opacity 250ms;
+  vertical-align: middle;
+}
+
+.work__summary:hover .permalink {
+  opacity: 0.4;
+  transition: opacity 250ms 250ms;
+}
+
+.work__summary:hover .permalink:hover {
+  opacity: 1;
+  transition: opacity 250ms;
+}
+
+.permalink:after {
+  content: '\1f517';
+  padding-left: 0.5ch;
 }
 
 .work__summary + p {
@@ -373,3 +399,5 @@ blockquote {
   margin-left: 0;
   padding-left: 1rem;
 }
+
+
