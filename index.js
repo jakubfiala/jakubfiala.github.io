@@ -48,6 +48,19 @@ renderer.setPixelRatio(window.devicePixelRatio / 2);
 renderer.domElement.id = 'bg';
 document.body.appendChild(renderer.domElement);
 
+const dampened = speed => {
+  let target = 0;
+  let value = 0;
+  return {
+    setTarget: t => target = t,
+    getValue: v => value,
+    update: () => value += (target - value) * speed,
+  };
+};
+
+const dampeningFactor = 0.08;
+let MouseX = dampened(dampeningFactor);
+let MouseY = dampened(dampeningFactor);
 
 const onWindowResize = event => {
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -56,8 +69,8 @@ const onWindowResize = event => {
 }
 
 const onMouseMove = event => {
-  uniforms.mouse.value.x = event.screenX / window.innerWidth;
-  uniforms.mouse.value.y = 1 - event.screenY / window.innerHeight;
+  MouseX.setTarget(event.screenX / window.innerWidth);
+  MouseY.setTarget(1 - event.screenY / window.innerHeight);
 }
 
 onWindowResize();
@@ -68,6 +81,12 @@ const animate = time => {
   requestAnimationFrame(animate);
 
   uniforms.time.value = time / 2000;
+
+  MouseX.update();
+  MouseY.update();
+  uniforms.mouse.value.x = MouseX.getValue();
+  uniforms.mouse.value.y = MouseY.getValue();
+
   renderer.render(scene, camera);
 }
 
