@@ -1,97 +1,9 @@
-import {
-  WebGLRenderer,
-  Mesh,
-  Camera,
-  Scene,
-  ShaderMaterial,
-  Vector2,
-  PlaneBufferGeometry
-} from 'three';
-
 import gallery from 'gallery';
 
 import { openDeepLinked } from './components/deep-links.js';
-import fragmentShader from './bg.glsl';
+import { startAnimating } from './components/background.js';
 
-const uniforms = {
-  time: {
-    type: 'f',
-    value: 1.0
-  },
-  resolution: {
-    type: 'v2',
-    value: new Vector2()
-  },
-  mouse: {
-    type: 'v2',
-    value: new Vector2(1, 0)
-  }
-};
-
-const renderer = new WebGLRenderer();
-const scene = new Scene();
-const camera = new Camera();
-const geometry = new PlaneBufferGeometry(2, 2);
-
-const material = new ShaderMaterial({
-  uniforms: uniforms,
-  vertexShader: 'void main() { gl_Position = vec4( position, 1.0 ); }',
-  fragmentShader
-});
-
-const mesh = new Mesh(geometry, material);
-scene.add(mesh);
-camera.position.z = 1;
-
-//Hack here to change resolution
-renderer.setPixelRatio(window.devicePixelRatio / 2);
-renderer.domElement.id = 'bg';
-document.body.appendChild(renderer.domElement);
-
-const dampened = speed => {
-  let target = 0;
-  let value = 0;
-  return {
-    setTarget: t => target = t,
-    getValue: v => value,
-    update: () => value += (target - value) * speed,
-  };
-};
-
-const dampeningFactor = 0.08;
-let MouseX = dampened(dampeningFactor);
-let MouseY = dampened(dampeningFactor);
-
-const onWindowResize = event => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  uniforms.resolution.value.x = renderer.domElement.width;
-  uniforms.resolution.value.y = renderer.domElement.height;
-}
-
-const onMouseMove = event => {
-  MouseX.setTarget(event.screenX / window.innerWidth);
-  MouseY.setTarget(1 - event.screenY / window.innerHeight);
-}
-
-onWindowResize();
-window.addEventListener('resize', onWindowResize, false);
-document.body.addEventListener('mousemove', onMouseMove, false);
-
-const animate = time => {
-  requestAnimationFrame(animate);
-
-  uniforms.time.value = time / 2000;
-
-  MouseX.update();
-  MouseY.update();
-  uniforms.mouse.value.x = MouseX.getValue();
-  uniforms.mouse.value.y = MouseY.getValue();
-
-  renderer.render(scene, camera);
-}
-
-requestAnimationFrame(animate);
-
+startAnimating();
 gallery(document);
 
 openDeepLinked(location.hash.replace('#', ''));
