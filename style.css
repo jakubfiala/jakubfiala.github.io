@@ -92,20 +92,22 @@ h2:before {
 }
 
 a, a:visited {
-  border-bottom: solid 2px #ddd;
   color: #D93B30;
-  text-decoration: none;
-  transition: border-color 250ms;
+  text-decoration: underline 2px #ddd;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 250ms;
 }
 
 a:hover {
-  border-color: currentColor;
+  text-decoration-color: currentColor;
 }
 
 h1 a {
   color: #101010 !important;
   border: none;
   position: relative;
+  text-decoration: none;
   transition: color 250ms;
 }
 
