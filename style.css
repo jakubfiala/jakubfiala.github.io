@@ -193,6 +193,12 @@ li {
   opacity: 0.3;
 }
 
+@media screen and (min-width: 768px) {
+  .nav-item {
+    text-underline-offset: 9px;
+  }
+}
+
 .nav-item--selected {
   font-weight: bolder;
 }
