@@ -293,6 +293,7 @@ li {
 
 .work__links-item {
   display: block;
+  text-indent: -1ch;
 }
 
 .work__links-item:before {
