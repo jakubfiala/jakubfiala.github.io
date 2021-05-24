@@ -237,6 +237,7 @@ li {
 .work__summary {
   cursor: pointer;
   font-size: 1.382rem;
+  font-weight: bolder;
   padding-left: 2ch;
   page-break-after: avoid;
   text-indent: -1.7ch;
