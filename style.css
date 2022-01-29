@@ -2,7 +2,32 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-background: white;
+  --color-border: #f4f4f4;
+  --color-text-body: #101010;
+  --color-text-highlight: #D93B30;
+  --color-text-underline: #ddd;
+  --color-text-underline-hover: #DF7B74;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-background: black;
+    --color-border: #242424;
+    --color-text-body: #E0E0E0;
+    --color-text-highlight: #D93B30;
+    --color-text-underline: #333;
+    --color-text-underline-hover: #B90B00;
+  }
+}
+
+html {
+  background: var(--color-background);
+}
+
 html, body {
+  color: var(--color-text-body);
   margin: 0;
   font-size: 16px;
   -webkit-overflow-scrolling: touch;
@@ -16,7 +41,7 @@ html, body {
 
 @media screen and (min-width: 1400px) {
   html, body {
-    font-size: 19px;
+    font-size: 20px;
   }
 }
 
@@ -105,19 +130,19 @@ h2:before {
 }
 
 a, a:visited {
-  color: #D93B30;
-  text-decoration: underline 2px #ddd;
+  color: var(--color-text-highlight);
+  text-decoration: underline 2px var(--color-text-underline);
   text-decoration-skip-ink: auto;
   text-underline-offset: 3px;
   transition: text-decoration-color 250ms;
 }
 
 a:hover {
-  text-decoration-color: #DF7B74;
+  text-decoration-color: var(--color-text-underline-hover);
 }
 
 h1 a {
-  color: #101010 !important;
+  color: var(--color-text-body) !important;
   border: none;
   position: relative;
   text-decoration: none;
@@ -125,8 +150,7 @@ h1 a {
 }
 
 h1 a:hover {
-  /*background: linear-gradient(#FFFFB7 0%, #D93B30 75%, #D93B30 100%);*/
-  color: #D93B30 !important;
+  color: var(--color-text-highlight) !important;
 }
 
 p {
@@ -192,7 +216,6 @@ li {
 
 #site-nav li {
   display: inline;
-  margin-top: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -223,7 +246,7 @@ li {
 }
 
 .works-list__item + .works-list__item {
-  border-top: solid 2px #f4f4f4;
+  border-top: solid 2px var(--color-border);
   margin-top: 0.618rem;
   padding-top: 0.618rem;
 }
@@ -425,7 +448,7 @@ iframe {
 }
 
 blockquote {
-  border-left: solid .5rem #eee;
+  border-left: solid .5rem var(--color-border);
   margin-left: 0;
   padding-left: 1rem;
 }

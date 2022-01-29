@@ -9,6 +9,7 @@ precision mediump float;
 uniform vec2 resolution;
 uniform vec2 mouse;
 uniform float time;
+uniform int invert;
 
 vec2 random2( vec2 p ) {
   return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);
@@ -18,6 +19,7 @@ void main() {
   vec2 st = gl_FragCoord.xy/resolution.xy;
   st.x *= resolution.x/resolution.y;
   vec3 color = vec3(.0);
+  bool shouldInvert = invert == 1;
 
   // Scale
   st *= 10.;
@@ -55,8 +57,12 @@ void main() {
 
   // Draw the min distance (distance field)
   float brightness = m_dist * pow(distance(mousepos, pix) * 2.0, 2.0) * pix.x;
-  color = vec3(brightness * (2.5 - pix.y), brightness * pix.y * pix.x, brightness * pix.y);
+
+  float rOffsetY = shouldInvert ? 1.0 : 2.5;
+  float gOffsetY = shouldInvert ? 0.5 : 0.0;
+  float bOffsetY = shouldInvert ? 0.5 : 0.0;
+  color = vec3(brightness * (rOffsetY - pix.y), brightness * (pix.y + gOffsetY) * pix.x, 1.2 * brightness * (pix.y + bOffsetY));
 
   vec4 final_color = vec4(color, 1.0) / (pow(pix.x, 1.0)) + pow(cos(pix.x), 1.0);
-  gl_FragColor = final_color;
+  gl_FragColor = shouldInvert ? vec4(1.0 - final_color) : final_color;
 }

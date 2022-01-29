@@ -1,6 +1,7 @@
 import fragmentShaderSource from './bg.glsl';
 import { createRenderer } from '../glsl-sandbox.js';
 
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 const { canvas, draw } = createRenderer(fragmentShaderSource);
 
 canvas.id = 'bg';
@@ -40,7 +41,7 @@ const animate = time => {
   MouseX.update();
   MouseY.update();
 
-  draw(time, MouseX.getValue(), MouseY.getValue(), canvas.width, canvas.height);
+  draw(time, MouseX.getValue(), MouseY.getValue(), canvas.width, canvas.height, mediaQuery.matches);
 }
 
 export const startAnimating = () => requestAnimationFrame(animate);
