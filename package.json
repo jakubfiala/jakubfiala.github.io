@@ -11,7 +11,7 @@
     "gallery": "^1.0.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.22.0",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.3.12",
     "webpack-glsl-loader": "^1.0.1"
   },
   "scripts": {
