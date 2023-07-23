@@ -7,6 +7,10 @@ const { canvas, draw } = createRenderer(fragmentShaderSource);
 canvas.id = 'bg';
 document.body.appendChild(canvas);
 
+const overlay = document.createElement('div');
+overlay.classList.add('bg-overlay');
+document.body.appendChild(overlay);
+
 const dampened = speed => {
   let target = 0;
   let value = 0;

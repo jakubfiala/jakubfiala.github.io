@@ -63,6 +63,6 @@ void main() {
   float bOffsetY = shouldInvert ? 0.5 : 0.0;
   color = vec3(brightness * (rOffsetY - pix.y), brightness * (pix.y + gOffsetY) * pix.x, 1.2 * brightness * (pix.y + bOffsetY));
 
-  vec4 final_color = vec4(color, 1.0) / (pow(pix.x, 1.0)) + pow(cos(pix.x), 1.0);
-  gl_FragColor = shouldInvert ? vec4(1.0 - final_color) : final_color;
+  // vec4 final_color = vec4(color, 1.0) / (pow(pix.x, 1.0)) + pow(cos(pix.x), 1.0);
+  gl_FragColor = shouldInvert ? vec4(1.0 - color, 1.0) : vec4(color, 1.0);
 }

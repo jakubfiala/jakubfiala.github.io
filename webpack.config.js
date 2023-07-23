@@ -39,11 +39,6 @@ const prodConfig = {
   },
   entry: './index.js',
   mode: 'production',
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin()
-    ]
-  }
 };
 
 module.exports = Object.assign({}, baseConfig, DEV ? devConfig : prodConfig);
