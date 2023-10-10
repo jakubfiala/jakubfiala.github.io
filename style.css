@@ -457,6 +457,7 @@ blockquote {
   border-left: solid .5rem var(--color-border);
   margin-left: 0;
   padding-left: 1rem;
+  line-height: 1.618rem;
 }
 
 .bg-overlay {
