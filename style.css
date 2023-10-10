@@ -466,8 +466,14 @@ blockquote {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 35%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0.8) 100%);
   z-index: -1;
   position: fixed;
+}
+
+@media screen and (min-width: 768px) {
+  .bg-overlay {
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%);
+  }
 }
 
