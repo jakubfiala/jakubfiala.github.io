@@ -4,6 +4,7 @@
 
 :root {
   --color-background: white;
+  --color-background80: rgba(255,255,255,0.8);
   --color-border: #f4f4f4;
   --color-text-body: #101010;
   --color-text-highlight: #D93B30;
@@ -14,6 +15,7 @@
 @media screen and (prefers-color-scheme: dark) {
   :root {
     --color-background: black;
+    --color-background80: rgba(0,0,0,0.8);
     --color-border: #242424;
     --color-text-body: #E0E0E0;
     --color-text-highlight: #D93B30;
@@ -466,14 +468,14 @@ blockquote {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 35%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0.8) 100%);
+  background: linear-gradient(90deg, var(--color-background) 0%, var(--color-background) 35%, var(--color-background80) 75%, var(--color-background80) 100%);
   z-index: -1;
   position: fixed;
 }
 
 @media screen and (min-width: 768px) {
   .bg-overlay {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(90deg, var(--color-background) 0%, var(--color-background) 25%, transparent 75%, transparent 100%);
   }
 }
 
