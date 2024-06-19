@@ -1,0 +1,154 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: black;
+  font-family: monospace;
+  /* font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif; */
+  font-size: 18px;
+  padding: 0;
+}
+
+body {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 850px;
+}
+
+header, main {
+  animation: fade-in 1s 1s both;
+  border: solid 1px rgba(0,0,0,0.05);
+}
+
+header {
+  padding: 1rem;
+}
+
+main {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  main {
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+}
+
+p {
+  line-height: 1.5;
+  hyphens: auto;
+}
+
+#bg {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -2;
+}
+
+header svg {
+  height: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 auto;
+  width: max-content;
+  max-width: 100%;
+  line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 0;
+  padding: 0;
+  font-size: 1.25rem;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  nav ul {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+
+  nav ul li {
+    flex-basis: calc(100% / 3);
+  }
+}
+
+a, a:visited {
+  color: inherit;
+  font-weight: bold;
+  text-decoration-color: rgba(0,0,0,0.15);
+  text-decoration-thickness: 2px;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+img {
+  max-width: 100%;
+}
+
+main > img {
+  opacity: 0.85;
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  main > img {
+    margin: 0 auto 3rem;
+  }
+}
+
+main li + li {
+  margin-top: 0.4rem;
+}
