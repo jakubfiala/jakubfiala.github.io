@@ -1,8 +1,8 @@
 const ASPECT_DIM = innerWidth > innerHeight ? 'y' : 'x';
 
-const DUNE1X = Math.random() * 0.9;
-const DUNE2X = Math.random() * 0.9;
-const DUNE3X = Math.random() * 0.9;
+const DUNE1X = Math.random();
+const DUNE2X = Math.random();
+const DUNE3X = Math.random();
 const DUNE1P = Math.random() * 30 + 10;
 const DUNE2P = Math.random() * 30 + 10;
 const DUNE3P = Math.random() * 30 + 10;
