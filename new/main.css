@@ -14,7 +14,7 @@
 
 html {
   background: black;
-  color: black;
+  color: #111;
   font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
   font-size: 16px;
   padding: 0;
@@ -45,9 +45,14 @@ header {
   padding: 1rem;
   text-transform: uppercase;
   display: grid;
-  grid-template-columns: max-content 2fr;
   gap: 2rem;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    grid-template-columns: max-content 2fr;
+  }
 }
 
 main {
@@ -138,14 +143,14 @@ h1, h2 {
 h1 {
   font-size: 3rem;
   margin: 0;
-  width: max-content;
-  max-width: 100%;
   letter-spacing: -2px;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 4rem;
+    text-align: left;
   }
 }
 
@@ -217,7 +222,8 @@ a:hover {
 }
 
 .work__tag {
-  background: black;
+  background: #111;
   color: white;
+  line-height: 2;
   padding: 0 0.5rem;
 }
