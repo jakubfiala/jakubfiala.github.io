@@ -1,16 +1,18 @@
 const ASPECT_DIM = innerWidth > innerHeight ? 'y' : 'x';
 
-const DUNE1X = Math.random() * 0.7 - 0.3;
-const DUNE2X = Math.random() * 0.7 - 0.3;
-const DUNE3X = Math.random() * 0.7 - 0.3;
+const DUNE1X = Math.random() * 0.9;
+const DUNE2X = Math.random() * 0.9;
+const DUNE3X = Math.random() * 0.9;
 const DUNE1P = Math.random() * 30 + 10;
 const DUNE2P = Math.random() * 30 + 10;
 const DUNE3P = Math.random() * 30 + 10;
 
 export default `
 # define SPEED 0.9
-# define START_COLOR vec3(0.1, 0.8, 1.0)
-# define END_COLOR vec3(0.8, 0.8, 0.2)
+// # define START_COLOR vec3(0.1, 0.8, 1.0)
+// # define END_COLOR vec3(0.8, 0.8, 0.2)
+# define START_COLOR vec3(1.5, 1.5, 1.5)
+# define END_COLOR vec3(0.0, 0.0, 0.0)
 
 #ifdef GL_ES
 precision mediump float;
@@ -29,7 +31,7 @@ vec3 dune(vec2 uv, vec2 point, float period, float introDuration) {
   uv.x += sin(uv.y * 10.0 + time * 0.2) / period;
 
   vec2 relative = uv - point;
-  float angle = atan(relative.x, relative.y);
+  float angle = -1.0 * atan(relative.x, relative.y);
   float t = (angle + 3.14) / 2.0 / 3.14;
 
   return 0.1 * (1.0 / (min((time + 1.0) / introDuration, 1.0))) * mix(START_COLOR, END_COLOR, t);
