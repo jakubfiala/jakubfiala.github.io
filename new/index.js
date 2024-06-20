@@ -7,8 +7,8 @@ canvas.id = 'bg';
 document.body.appendChild(canvas);
 
 const onWindowResize = () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth * devicePixelRatio;
+  canvas.height = window.innerHeight * devicePixelRatio;
 }
 
 onWindowResize();
