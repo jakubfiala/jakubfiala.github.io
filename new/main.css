@@ -15,7 +15,7 @@
 html {
   background: black;
   color: #111;
-  font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+  font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
   font-size: 16px;
   padding: 0;
 }
@@ -45,13 +45,13 @@ header {
   padding: 1rem;
   text-transform: uppercase;
   display: grid;
-  gap: 2rem;
   align-items: center;
 }
 
 @media screen and (min-width: 768px) {
   header {
     grid-template-columns: max-content 2fr;
+    gap: 2rem;
   }
 }
 
@@ -167,6 +167,29 @@ h1 {
   }
 }
 
+.links {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  justify-content: center;
+  text-transform: none;
+}
+
+@media screen and (min-width: 768px) {
+  .links {
+    justify-content: start;
+  }
+}
+
+.links__item, .work__tag {
+  background: #111;
+  color: white;
+  line-height: 2;
+  padding: 0 0.5rem;
+}
+
 a, a:visited {
   color: inherit;
   font-weight: bold;
@@ -178,7 +201,11 @@ a:hover {
   text-decoration-color: currentColor;
 }
 
-.intro li + li {
+.links__item a {
+  font-weight: normal;
+}
+
+.services li + li {
   margin-top: 0.1rem;
 }
 
@@ -219,11 +246,27 @@ a:hover {
   gap: 0.25rem;
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 
-.work__tag {
-  background: #111;
-  color: white;
-  line-height: 2;
-  padding: 0 0.5rem;
+.testimonial {
+  padding: 1rem;
+  margin: 0;
+}
+
+.testimonial__text {
+  font-weight: 500;
+  margin: 0;
+}
+
+.testimonial__text::before {
+  content: '\201C';
+}
+
+.testimonial__text::after {
+  content: '\201D';
+}
+
+.testimonial__source::before {
+  content: '\002014\000020';
 }
