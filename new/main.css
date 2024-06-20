@@ -170,7 +170,7 @@ h1 {
 .links {
   list-style-type: none;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   margin: 1.5rem 0 0;
   padding: 0;
   justify-content: center;
