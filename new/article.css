@@ -1,0 +1,62 @@
+.subpage #logo {
+  min-width: 300px;
+}
+
+.subpage body {
+  max-width: 1000px;
+}
+
+.article {
+  font-size: 1.25rem;
+  padding: 1rem;
+  grid-column: span 6;
+}
+
+@media screen and (min-width: 768px) {
+  .article {
+    padding: 2rem;
+  }
+}
+
+.article__title {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+}
+
+.article__image {
+  margin-top: 2rem;
+}
+
+.back-link {
+  display: block;
+}
+
+.article-links {
+  margin: 1rem 0 0;
+  padding: 0 0 0 1ch;
+  list-style-type: none;
+}
+
+.article-links__item {
+  display: block;
+  text-indent: -1ch;
+}
+
+.article-links__item:before {
+  content: ' / ';
+  opacity: 0.3;
+}
+
+.article a {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.article img {
+  display: block;
+  max-width: 100%;
+}
+
+.article img + img {
+  margin-top: 1rem;
+}
