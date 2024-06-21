@@ -35,10 +35,8 @@ header, main {
   animation: fade-in 1s 1s both;
 }
 
-header, section {
-  background: #ffffff09;
-  border: solid 1px rgba(0,0,0,0.05);
-  box-shadow: 5px 5px 30px #0001;
+.subpage header, .subpage main {
+  animation: none;
 }
 
 header {
@@ -51,7 +49,6 @@ header {
 @media screen and (min-width: 768px) {
   header {
     grid-template-columns: max-content 2fr;
-    gap: 2rem;
   }
 }
 
@@ -62,6 +59,12 @@ main {
   gap: 1rem;
   line-height: 1.5;
   hyphens: auto;
+}
+
+.subpage header, section {
+  background: #ffffff09;
+  border: solid 1px rgba(0,0,0,0.05);
+  box-shadow: 5px 5px 30px #0001;
 }
 
 .intro :first-child {
@@ -133,6 +136,10 @@ main {
   z-index: -2;
 }
 
+.subpage #bg {
+  animation: none;
+}
+
 h1, h2 {
   line-height: 1;
 }
@@ -194,27 +201,26 @@ a, a:visited {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 .services li + li {
   margin-top: 0.1rem;
 }
 
-.work {
+.work, .subpage header {
   transition: box-shadow 500ms, background-color 500ms, border-color 500ms;
 }
 
-.work:hover {
+.work:hover, .subpage header:hover {
   background: #ffffff70;
   box-shadow: 5px 5px 30px #fff3;
   border-color: rgba(0,0,0,0.15);
 }
 
-.work__image {
+.work__image, .article__image {
   display: block;
   width: 100%;
+}
+
+.work__image {
   object-fit: cover;
   aspect-ratio: 5 / 3;
 }
@@ -225,6 +231,10 @@ a:hover {
 
 .work__title {
   margin: 0 0 0.25rem;
+}
+
+.work:hover .work__title {
+  text-decoration: underline;
 }
 
 .work__subtitle {
