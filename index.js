@@ -1,25 +1,26 @@
-import gallery from 'gallery';
+import fragmentShaderSource from './shader.js';
+import { createRenderer } from './glsl-sandbox.js';
 
-import { openDeepLinked } from './components/deep-links.js';
-import { startAnimating } from './components/background.js';
+const { canvas, draw } = createRenderer(fragmentShaderSource);
+
+const headStart = document.documentElement.classList.contains('subpage') ? 1000 : 0;
+
+canvas.id = 'bg';
+document.body.appendChild(canvas);
+
+const onWindowResize = () => {
+  canvas.width = window.innerWidth * devicePixelRatio;
+  canvas.height = window.innerHeight * devicePixelRatio;
+}
+
+onWindowResize();
+window.addEventListener('resize', onWindowResize, false);
+
+const animate = (time) => {
+  requestAnimationFrame(animate);
+  draw(time + headStart, 0, 0, canvas.width, canvas.height, false);
+}
+
+export const startAnimating = () => requestAnimationFrame(animate);
 
 startAnimating();
-gallery(document);
-
-openDeepLinked(location.hash.replace('#', ''));
-window.addEventListener('hashchange', e => openDeepLinked(location.hash.replace('#', '')));
-
-const openAllDetails = () => {
-  const details = document.querySelectorAll('details');
-  [...details].forEach(d => d.open = true);
-};
-
-const replaceImagesForPrint = () => {
-  const images = document.querySelectorAll('img[data-gallery-src]');
-  [...images].forEach(img => img.src = img.getAttribute('data-gallery-src'));
-};
-
-window.addEventListener('beforeprint', e => {
-  openAllDetails();
-  replaceImagesForPrint();
-});
