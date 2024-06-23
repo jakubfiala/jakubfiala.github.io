@@ -2,8 +2,26 @@
   min-width: 300px;
 }
 
+.subpage #bg {
+  animation: none;
+}
+
 .subpage body {
   max-width: 1000px;
+}
+
+.subpage header, .subpage main {
+  animation: none;
+}
+
+.subpage header, .subpage section {
+  background: #ffffff40;
+}
+
+.subpage header:hover {
+  background: #ffffff90;
+  box-shadow: 5px 5px 30px #fff3;
+  border-color: rgba(0,0,0,0.15);
 }
 
 .article {
