@@ -271,3 +271,13 @@ a, a:visited {
 .testimonial__source::before {
   content: '\002014\000020';
 }
+
+footer {
+  font-size: 14px;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+footer a {
+  font-weight: 500;
+}
