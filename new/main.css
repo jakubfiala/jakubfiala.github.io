@@ -58,6 +58,9 @@ main {
   display: grid;
   gap: 1rem;
   line-height: 1.5;
+}
+
+p, ul {
   hyphens: auto;
 }
 
