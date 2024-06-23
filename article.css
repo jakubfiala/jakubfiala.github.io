@@ -67,6 +67,7 @@
 
 blockquote {
   border-left: solid .5rem #0001;
+  font-size: 0.9em;
   margin-left: 0;
   padding-left: 1rem;
 }
