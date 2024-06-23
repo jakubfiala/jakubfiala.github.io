@@ -49,8 +49,21 @@
         </li>
       </ul>
       <img class="article__image" loading="lazy" src="../assets/img/atrament.png" alt="A drawing made with atrament">
-      <p>My first open-source software project, Atrament is a library for drawing and handwriting on the HTML canvas.
-        Its goal is for drawing to feel natural and comfortable, and the result to be smooth and pleasing.</p>
+      <p>
+        My first open-source software project, Atrament is a library for drawing and handwriting on the HTML canvas.
+        Its goal is for drawing to feel natural and comfortable, and the result to be smooth and pleasing.
+      </p>
+      <p>
+        I developed the original drawing algorithm for a university project &mdash; an infinite public collaborative drawing canvas
+        named 1WALL. It was important for me that users find drawing on the canvas enjoyable, and are satisfied with the results.
+        I realised connecting the mouse positions with simple lines (common in many simple drawing applications) doesn’t produce natural-looking drawings.
+        Real-life pen strokes are continous, while digital mouse movements are composed of discrete position samples.
+      </p>
+      <p>
+        To address this, I used quadratic curve interpolation, low-pass filtering and adaptive stroke thickness to render natural-looking strokes.
+        I then open-sourced the library as Atrament (meaning "ink" in Slovak). The library has since been used by over 100 software projects on GitHub alone,
+        and received contributions from 12 developers around the world. I maintain Atrament to this day and have published 4 major versions as of 2024.
+      </p>
     </section>
   </main>
 </body>
