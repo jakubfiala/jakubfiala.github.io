@@ -31,7 +31,7 @@ body {
   margin: 0 auto;
 }
 
-header, main {
+.first-load header, .first-load main {
   animation: fade-in 1s 1s both;
 }
 
@@ -125,7 +125,6 @@ section {
 }
 
 #bg {
-  animation: fade-in 800ms both;
   background: white;
   height: 100vh;
   left: 0;
@@ -133,6 +132,10 @@ section {
   top: 0;
   width: 100vw;
   z-index: -2;
+}
+
+.first-load #bg {
+  animation: fade-in 800ms both;
 }
 
 h1, h2 {

@@ -3,7 +3,10 @@ import { createRenderer } from './glsl-sandbox.js';
 
 const { canvas, draw } = createRenderer(fragmentShaderSource);
 
-const headStart = document.documentElement.classList.contains('subpage') ? 1000 : 0;
+const shouldHaveHeadStart = !document.documentElement.classList.contains('first-load')
+  || document.documentElement.classList.contains('subpage');
+
+const headStart = shouldHaveHeadStart ? 1000 : 0;
 
 canvas.id = 'bg';
 document.body.appendChild(canvas);

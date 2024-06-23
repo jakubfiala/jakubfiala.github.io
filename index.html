@@ -18,15 +18,13 @@
 	<meta property="og:image" content="/assets/img/social-banner.jpg" />
   <link rel='stylesheet' type='text/css' media='screen' href="/main.css">
   <script src="/index.js" async defer type="module"></script>
+  <script>
+    if (!document.referrer.startsWith(location.origin)) {
+      document.documentElement.classList.add('first-load');
+    }
+  </script>
 </head>
 <body>
-  <noscript>
-    <style>
-      header, main {
-        animation: none;
-      }
-    </style>
-  </noscript>
   <header>
     <div>
       <h1>
