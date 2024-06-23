@@ -36,6 +36,16 @@
   }
 }
 
+@media screen and (min-width: 1900px) {
+  .subpage body {
+    max-width: 1000px;
+  }
+
+  .article {
+    font-size: 1.3rem;
+  }
+}
+
 .article__title {
   margin: 0 0 1rem;
   font-size: 3rem;
@@ -77,6 +87,7 @@
 .article img {
   display: block;
   max-width: 100%;
+  margin: 0 auto;
 }
 
 .article img + img {
