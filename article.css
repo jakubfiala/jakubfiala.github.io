@@ -65,6 +65,10 @@
   opacity: 0.3;
 }
 
+.article p {
+  margin: 1.25rem 0;
+}
+
 .article a {
   font-weight: 500;
   text-decoration: underline;
@@ -76,7 +80,7 @@
 }
 
 .article img + img {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 blockquote {
