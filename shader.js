@@ -9,8 +9,6 @@ const DUNE3P = Math.random() * 30 + 10;
 
 export default `
 # define SPEED 0.9
-// # define START_COLOR vec3(0.1, 0.8, 1.0)
-// # define END_COLOR vec3(0.8, 0.8, 0.2)
 # define START_COLOR vec3(1.5, 1.5, 1.5)
 # define END_COLOR vec3(0.0, 0.0, 0.0)
 
@@ -46,10 +44,7 @@ void main() {
   vec3 d = dune(uv, vec2(${DUNE1X}, min(0.9, time * SPEED)), ${DUNE1P}, 0.5);
   vec3 d2 = dune(uv, vec2(${DUNE2X}, min(0.2, time * SPEED)), ${DUNE2P}, 8.0);
   vec3 d3 = dune(uv, vec2(${DUNE3X}, min(0.5, time * SPEED)), ${DUNE3P}, 3.0);
-        // Noise
   float noise = (0.06 * rand(1.0e2 * uv + time * 0.0001) - 0.15);
-
   gl_FragColor = vec4(base - d - d2 - d3 - noise, 1.0);
-  // gl_FragColor = vec4(base + noise, 1.0);
 }
 `;
