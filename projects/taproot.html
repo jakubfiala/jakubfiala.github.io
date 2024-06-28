@@ -40,13 +40,74 @@
         <li class="article-links__item">
           <a href="https://ecosia.org" rel="noopener" target="_blank">ecosia.org</a>
         </li>
+        <li class="article-links__item">
+          <a href="https://docs.google.com/presentation/d/1nSzyrmBsslylHGHo-VoD1AYkXP8IKCJAFPe93zkAkmU/edit?usp=sharing" rel="noopener" target="_blank">Slides for my talk about Taproot</a>
+        </li>
       </ul>
       <img class="article__image" src="/assets/img/ecosia.png" alt="Screenshot of the Ecosia homepage">
       <p>
-        I've spent 4 years at Ecosia, the search engine that plants trees. I initially focused on transforming a legacy monolithic application into a modern microservice system fronted by performant Vue-based web applications.
-        After completing this multi-year process, I helped conceive and execute a reorganisation into three specialised Search teams. I took on technical leadership of the new Rich Content team, which uses large datasets, query understanding and context-sensitive user interfaces to answer more of our users' queries, and answer them better. I co-led the org-wide rebranding project and co-authored the new Frontend technical strategy.
-        In my last few months, I built a specialised in-house web app framework called Taproot, which will make the Ecosia search experience more performant, future-proof and give the engineering teams profound control over their applications.
+        I've spent 4 years at Ecosia, the search engine that plants trees.
+        My last project as Principal Engineer was a specialised in-house web app framework called Taproot,
+        which strove to make the Ecosia search experience more performant, future-proof and give the engineering teams profound control over their applications.
       </p>
+      <p>
+        As a search engine, Ecosia faces an atypical set of challenges.
+        It presents rich interactive pages, which are only complete once a long API request (the search request)
+        completes. This can lead to rather long perceived loading times, and Ecosia engineers employ a number of strategies to mitigate the problem.
+        The HTML is largely server-rendered, and is meant to be usable without JavaScript, too.
+      </p>
+      <p>
+        Ecosia has used <a href="https://nuxt.com">Nuxt</a> to render its Vue.js UI for years. Nuxt allowed rapid development
+        of new applications and provided a great starting point for Ecosia's modern web stack. However, over time engineers started to be restricted
+        by Nuxt's "batteries included" API which did not give them control over exactly how the page is rendered. Page performance suffered as more and more
+        JavaScript was being delivered to the browser, and Nuxt's easy-to-use abstractions became a burden on the codebase.
+        To address this, I teamed up with Emanuele Marchi and Zoe Colley to develop an in-house web framework. The framework, called &ldquo;Taproot&rdquo;,
+        began with a set of principles:
+      </p>
+      <ul>
+        <li><strong>No magic</strong> - Framework logic should be transparent, inspectable and easy to understand. Taproot should let us control
+          almost every stage of the rendering process, and its interfaces should be explicit, rather than implicit.</li>
+        <li><strong>Less is more</strong> - Taproot should only have the features necessary for Ecosia's applications. Particularly on the client-side, we should execute as little code as possible. No unused code should be delivered to the browser.</li>
+        <li><strong>Simplicity over abstraction</strong> - Taproot should only provide abstractions if it reduces dependency on other parts of our stack. We prefer simpler code over extensible code.</li>
+      </ul>
+      <img loading="lazy" src="/assets/img/taproot-arch.webp" alt="Taproot architecture graph">
+      <p>
+        Taproot was no attempt to &ldquo;reinvent the wheel&rdquo;. Rather, we made use of existing tools and libraries, but combined them ourselves
+        to allow for the desired flexibility. Using <a href="https://vike.dev">Vike</a>, we were able to implement server-side rendering (SSR) and
+        client-side hydration, while controlling exactly how and when the Vue app is rendered on the client and server.
+        <strong>We used HTML streaming to deliver parts of HTML to the browser before the search API call completed.</strong>
+        This allowed the browser to start loading JavaScript, CSS, fonts and other assets during the long wait for the search results.
+      </p>
+      <p>
+        Another benefit of Taproot was the ability to directly inspect the SSR manifest file, which let us make informed decisions about
+        pre-loading certain assets. We could for example add a preload link for the German translations JS bundle on a per-request basis,
+        if we knew the user’s UI language is set to German. No third-party framework would be able to make choices like this for us,
+        because it couldn’t know the specific requirements of our applications.
+      </p>
+      <img loading="lazy" src="/assets/img/ecosia-images.webp" alt="Screenshot of the Ecosia Images vertical">
+      <p>
+        We first developed Taproot within the Settings application. This allowed us to test its performance impact with real traffic
+        and make sure it covers the requirements of a typical Nuxt application. Once we were satisfied with Settings' performance,
+        we extracted Taproot code into a separate library, including a simple CLI script and extensive documentation. We could then
+        migrate the Images vertical. This is one of our higher-traffic applications which receives around 50 requests per second and crucially,
+        serves search results so we could apply the “fetch while streaming” technique.
+      </p>
+      <img loading="lazy" src="/assets/img/taproot-web-vitals.webp" alt="Screenshot of Sentry Web Vitals metrics on the Images vertical. Comparison between Taproot and Nuxt.">
+      <p>The Web Vitals metrics (measured on anonymised real traffic) above show:</p>
+      <ul>
+        <li><strong>35% improvement in First Input Delay</strong> - since JS is already loaded and parsed before search results arrive, it’s much more likely the app will react fast when the user starts interacting with the results</li>
+        <li><strong>25% improvement in First Paint</strong> - because the browser has already prepared the DOM, CSSOM and the font, it’s much faster to paint contentful elements on the screen (also affects FCP)</li>
+        <li><strong>27% improvement in First Contentful Paint</strong> - see above</li>
+        <li><strong>2% improvement in Largest Contentful Paint</strong> - since this is the Images vertical, our LCP is partially bound by how fast the image thumbnails from our search provider’s CDN load. This is likely why we weren’t able to move this metric that much.
+          Still, the slight improvement can be attributed to the fact that by the time image thumbnails start loading, there are no more CSS/JS/font assets to load.</li>
+      </ul>
+      <img loading="lazy" src="/assets/img/taproot-cpu-mem.webp" alt="Screenshot showing large stats - -20% CPU usage, up to -29% memory usage">
+      <p>
+        CPU and memory usage also dropped significantly after migrating to Taproot. Lastly, decoupling SSR code from the UI framework allowed Ecosia
+        to progressively swap out parts of the stack (such as upgrading Vue to version 3, or changing the state management library) without having
+        to change the entire framework.
+      </p>
+      <p><em>More information on the ideas behind Taproot and its development are in <a href="https://docs.google.com/presentation/d/1nSzyrmBsslylHGHo-VoD1AYkXP8IKCJAFPe93zkAkmU/edit?usp=sharing" rel="noopener" target="_blank">the slides for my talk</a> at the Vue.js meetup in Berlin.</em></p>
     </section>
   </main>
   <footer>
