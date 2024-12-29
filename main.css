@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+*::selection {
+  background-color: yellow;
+  color: black;
+}
+
 html {
   background-color: #ccc;
   color: #111;

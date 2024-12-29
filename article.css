@@ -14,14 +14,8 @@
   animation: none;
 }
 
-.subpage header, .subpage section {
+.subpage section {
   background: #ffffff40;
-}
-
-.subpage header:hover {
-  background: #ffffff90;
-  box-shadow: 5px 5px 30px #fff3;
-  border-color: rgba(0,0,0,0.15);
 }
 
 .article {
@@ -48,7 +42,7 @@
 }
 
 .article p {
-  margin: 1.25rem 0;
+  margin: 2rem 0;
 }
 
 .article a {
@@ -85,6 +79,10 @@ img.article__image {
 
 .back-link {
   display: block;
+}
+
+.back-link:hover {
+  color: #444;
 }
 
 .article-links {
