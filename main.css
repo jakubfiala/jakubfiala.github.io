@@ -41,10 +41,6 @@ body {
   max-width: 1200px;
 }
 
-.first-load header, .first-load main {
-  animation: fade-in 1s 1s both;
-}
-
 header h1 {
   text-align: center;
   font-size: 3rem;
