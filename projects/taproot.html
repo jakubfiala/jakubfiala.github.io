@@ -9,14 +9,14 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="author" content="Jakub Fiala">
   <meta property="og:title" content="Taproot — Jakub Fiala" />
-  <link rel='stylesheet' type='text/css' media='screen' href="/main.css">
-  <link rel='stylesheet' type='text/css' media='screen' href="/article.css">
-  <script src="/index.js" async defer type="module"></script>
+  <link rel='stylesheet' type='text/css' media='screen' href="../main.css">
+  <link rel='stylesheet' type='text/css' media='screen' href="../article.css">
+  <script src="../index.js" async defer type="module"></script>
 </head>
 <body>
 
   <header>
-    <a class="back-link" href="/" title="Back to the homepage">
+    <a class="back-link" href="../" title="Back to the homepage">
       <h1>
         Jakub Fiala</h1>
     </a>
@@ -36,7 +36,7 @@
           <a href="https://docs.google.com/presentation/d/1nSzyrmBsslylHGHo-VoD1AYkXP8IKCJAFPe93zkAkmU/edit?usp=sharing" rel="noopener" target="_blank">Slides for my talk about Taproot</a>
         </li>
       </ul>
-      <img class="article__image" src="/assets/img/ecosia.png" alt="Screenshot of the Ecosia homepage">
+      <img class="article__image" src="../assets/img/ecosia.png" alt="Screenshot of the Ecosia homepage">
       <p>
         I've spent 4 years at Ecosia, the search engine that plants trees.
         My last project as Principal Engineer was a specialised in-house web app framework called Taproot,
@@ -62,7 +62,7 @@
         <li><strong>Less is more</strong> - Taproot should only have the features necessary for Ecosia's applications. Particularly on the client-side, we should execute as little code as possible. No unused code should be delivered to the browser.</li>
         <li><strong>Simplicity over abstraction</strong> - Taproot should only provide abstractions if it reduces dependency on other parts of our stack. We prefer simpler code over extensible code.</li>
       </ul>
-      <img loading="lazy" src="/assets/img/taproot-arch.webp" alt="Taproot architecture graph">
+      <img loading="lazy" src="../assets/img/taproot-arch.webp" alt="Taproot architecture graph">
       <p>
         Taproot was no attempt to &ldquo;reinvent the wheel&rdquo;. Rather, we made use of existing tools and libraries, but combined them ourselves
         to allow for the desired flexibility. Using <a href="https://vike.dev">Vike</a>, we were able to implement server-side rendering (SSR) and
@@ -76,7 +76,7 @@
         if we knew the user’s UI language is set to German. No third-party framework would be able to make choices like this for us,
         because it couldn’t know the specific requirements of our applications.
       </p>
-      <img loading="lazy" src="/assets/img/ecosia-images.webp" alt="Screenshot of the Ecosia Images vertical">
+      <img loading="lazy" src="../assets/img/ecosia-images.webp" alt="Screenshot of the Ecosia Images vertical">
       <p>
         We first developed Taproot within the Settings application. This allowed us to test its performance impact with real traffic
         and make sure it covers the requirements of a typical Nuxt application. Once we were satisfied with Settings' performance,
@@ -84,7 +84,7 @@
         migrate the Images vertical. This is one of our higher-traffic applications which receives around 50 requests per second and crucially,
         serves search results so we could apply the “fetch while streaming” technique.
       </p>
-      <img loading="lazy" src="/assets/img/taproot-web-vitals.webp" alt="Screenshot of Sentry Web Vitals metrics on the Images vertical. Comparison between Taproot and Nuxt.">
+      <img loading="lazy" src="../assets/img/taproot-web-vitals.webp" alt="Screenshot of Sentry Web Vitals metrics on the Images vertical. Comparison between Taproot and Nuxt.">
       <p>The Web Vitals metrics (measured on anonymised real traffic) above show:</p>
       <ul>
         <li><strong>35% improvement in First Input Delay</strong> - since JS is already loaded and parsed before search results arrive, it’s much more likely the app will react fast when the user starts interacting with the results</li>
@@ -93,7 +93,7 @@
         <li><strong>2% improvement in Largest Contentful Paint</strong> - since this is the Images vertical, our LCP is partially bound by how fast the image thumbnails from our search provider’s CDN load. This is likely why we weren’t able to move this metric that much.
           Still, the slight improvement can be attributed to the fact that by the time image thumbnails start loading, there are no more CSS/JS/font assets to load.</li>
       </ul>
-      <img loading="lazy" src="/assets/img/taproot-cpu-mem.webp" alt="Screenshot showing large stats - -20% CPU usage, up to -29% memory usage">
+      <img loading="lazy" src="../assets/img/taproot-cpu-mem.webp" alt="Screenshot showing large stats - -20% CPU usage, up to -29% memory usage">
       <p>
         CPU and memory usage also dropped significantly after migrating to Taproot. Lastly, decoupling SSR code from the UI framework allowed Ecosia
         to progressively swap out parts of the stack (such as upgrading Vue to version 3, or changing the state management library) without having
