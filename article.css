@@ -51,6 +51,7 @@
 }
 
 .article img {
+  border: solid 1px #0001;
   display: block;
   max-width: 100%;
   margin: 0 auto;
