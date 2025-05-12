@@ -4,7 +4,7 @@ const RAND_X = (Math.random() * 3).toFixed(2);
 const RAND_Y = (Math.random() * 3).toFixed(2);
 
 export default `
-# define SPEED 0.25
+# define SPEED 0.5
 # define PI 3.1415926538
 
 #ifdef GL_ES
@@ -20,6 +20,43 @@ float rand(vec2 co) {
   return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
+vec2 rand2( vec2 p ) {
+    return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);
+}
+
+float voro(vec2 uv, float time, float scale) {
+  vec2 st = uv * scale;
+  // Tile the space
+  vec2 i_st = floor(st);
+  vec2 f_st = fract(st);
+
+  float m_dist = 1.;  // minimum distance
+
+  for (int y= -1; y <= 1; y++) {
+    for (int x= -1; x <= 1; x++) {
+      // Neighbor place in the grid
+      vec2 neighbor = vec2(float(x),float(y));
+
+      // Random position from current + neighbor place in the grid
+      vec2 point = rand2(i_st + neighbor);
+
+      // Animate the point
+      point = 0.5 + 0.5 * sin(time + 6.2831 * point);
+
+      // Vector between the pixel and the point
+      vec2 diff = neighbor + point - f_st;
+
+      // Distance to the point
+      float dist = length(diff);
+
+      // Keep the closer distance
+      m_dist = min(m_dist, dist);
+    }
+  }
+
+  return m_dist;
+}
+
 void main() {
   vec2 res = resolution.xy;
   vec2 uv = vec2(gl_FragCoord.xy - 0.5 * res) / res.${ASPECT_DIM};
@@ -29,10 +66,15 @@ void main() {
 
   vec3 base = vec3(1.0, 1.0, 1.0);
   float noise = (0.2 * rand(1.0e2 * uv + time * 0.0001) - 0.15);
-  float lines = sin(uv.x * res.x) * 0.5;
-  float gradient = mix(sin(uv.y + PI / 2.0 + tp + ${RAND_Y}) * 0.5, cos(uv.x * 2.0 + tp + ${RAND_X}), uv.y + sin(tp) - 1.0);
-  float intro = clamp(time, 0.0, 0.4);
+  float cells1 = voro(uv, tp, 20.0);
+  float cells2 = voro(vec2(uv.y, uv.x), tp + 0.5, 5.0);
+  float cells3 = voro(vec2(uv.x, uv.y), tp * 0.5 + 1.0, 8.0);
+  float intro = clamp(tp, 0.0, 0.4);
+  float focus = 0.45 - length(vec2(uv.x - mouse.x, 1.0 - uv.y - mouse.y));
 
-  gl_FragColor = vec4(base - lines + 0.5 * gradient - noise, intro);
+  float cells = cells1 / cells2 / cells3;
+  float full = cells * focus * 0.25 - noise;
+
+  gl_FragColor = vec4(base - full, intro);
 }
 `;
