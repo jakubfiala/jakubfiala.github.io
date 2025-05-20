@@ -12,8 +12,8 @@ canvas.id = 'bg';
 document.body.appendChild(canvas);
 
 const onWindowResize = () => {
-  canvas.width = window.innerWidth * devicePixelRatio;
-  canvas.height = window.innerHeight * devicePixelRatio;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
 
 onWindowResize();
@@ -26,9 +26,19 @@ window.addEventListener('pointermove', (event) => {
   mouse.y = event.clientY / window.innerHeight;
 });
 
+const renderedMouse = new DOMPoint(0, 0);
+
 const animate = (time) => {
+  // smoothly transition to the new mouse position
+  if (Math.abs(mouse.x - renderedMouse.x) > 1e-1) {
+    renderedMouse.x += (mouse.x - renderedMouse.x) / 20;
+  }
+  if (Math.abs(mouse.y - renderedMouse.y) > 1e-1) {
+    renderedMouse.y += (mouse.y - renderedMouse.y) / 20;
+  }
+
   requestAnimationFrame(animate);
-  draw(time + headStart, mouse.x, mouse.y, canvas.width, canvas.height, false);
+  draw(time + headStart, renderedMouse.x, renderedMouse.y, canvas.width, canvas.height, false);
 };
 
 export const startAnimating = () => requestAnimationFrame(animate);
