@@ -78,14 +78,6 @@ img.article__image {
   margin-top: 2rem;
 }
 
-.back-link {
-  display: block;
-}
-
-.back-link:hover {
-  color: #444;
-}
-
 .article-links {
   margin: 1rem 0 0;
   padding: 0 0 0 1ch;

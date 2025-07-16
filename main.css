@@ -113,8 +113,7 @@ header h1 {
 }
 
 main {
-  animation: fade-in 1s 2s linear both;
-  animation-delay: 1.2s;
+  animation: fade-in 1s 1.2s linear both;
   margin-top: 1rem;
   display: grid;
   gap: 1rem;
@@ -155,6 +154,7 @@ section {
 
 @media screen and (min-width: 768px) {
   main {
+    animation-delay: 0s;
     margin-top: 0;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -335,4 +335,16 @@ footer {
 
 footer a {
   font-weight: bold;
+}
+
+.back-link {
+  display: block;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-family: monospace;
+}
+
+.back-link:hover {
+  color: #444;
 }
