@@ -4,7 +4,7 @@ const RAND_X = (Math.random() * 3).toFixed(2);
 const RAND_Y = (Math.random() * 3).toFixed(2);
 
 export default `
-# define SPEED 0.5
+# define SPEED 0.25
 # define PI 3.1415926538
 
 #ifdef GL_ES
@@ -66,15 +66,15 @@ void main() {
 
   vec3 base = vec3(1.0, 1.0, 1.0);
   float noise = (0.2 * rand(1.0e2 * uv + time * 0.0001) - 0.15);
-  float cells1 = voro(uv, tp, 20.0);
+  float cells1 = voro(uv, tp, 10.0);
   float cells2 = voro(vec2(uv.y, uv.x), tp + 0.5, 5.0);
   float cells3 = voro(vec2(uv.x, uv.y), tp * 0.5 + 1.0, 8.0);
   float intro = clamp(tp, 0.0, 0.4);
-  float focus = 0.45 - length(vec2(uv.x - mouse.x, 1.0 - uv.y - mouse.y));
+  float focus = 1.2 - length(vec2(uv.x, 1.0 - uv.y));
 
   float cells = cells1 / cells2 / cells3;
-  float full = cells * focus * 0.25 - noise;
+  float full = cells * focus - noise;
 
-  gl_FragColor = vec4(base - full, intro);
+  gl_FragColor = vec4(vec3(full), intro);
 }
 `;

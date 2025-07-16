@@ -6,8 +6,10 @@
   animation: none;
 }
 
-.subpage body {
-  max-width: 850px;
+@media screen and (min-width: 1000px) {
+  .subpage main {
+    grid-template-columns: 1fr;
+  }
 }
 
 .subpage header, .subpage main {
@@ -16,6 +18,8 @@
 
 .subpage section {
   background: #ffffffa0;
+  max-width: 80ch;
+  margin: 0 auto;
 }
 
 .article {
@@ -32,10 +36,6 @@
 }
 
 @media screen and (min-width: 1900px) {
-  .subpage body {
-    max-width: 1000px;
-  }
-
   .article {
     font-size: 1.3rem;
   }
