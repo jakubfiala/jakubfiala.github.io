@@ -8,6 +8,16 @@
   }
 }
 
+@keyframes slide-in {
+  from {
+    translate: 0 -100%;
+  }
+
+  to {
+    translate: 0 0%;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -31,7 +41,7 @@ html {
 }
 
 body {
-  padding: 1rem;
+  padding: 5rem 1rem 1rem;
   margin: 0 auto;
 }
 
@@ -41,23 +51,26 @@ body {
     grid-template-columns: min-content 2fr;
     gap: 2rem;
     padding-left: 2rem;
+    padding-top: 1rem;
   }
 }
 
 header h1 {
-  animation: fade-in 1s 1s linear both;
   mix-blend-mode: color-burn;
   text-shadow: 0 0 10px currentColor;
-  text-align: center;
-  font-size: 3rem;
+  font-size: 8rem;
   letter-spacing: -0.1ch;
   margin: 1rem 0;
-  color: white;
+  color: salmon;
+}
+
+.first-load header h1 {
+  animation: fade-in 1s 1s linear both, slide-in 2s ease-out both;
 }
 
 @media screen and (min-width: 768px) {
   header {
-    top: calc(50vh - 10rem);
+    top: calc(100vh - 20rem);
     position: sticky;
     align-self: start;
     height: calc(100vh - 2rem);
@@ -83,6 +96,7 @@ header h1 {
 }
 
 main {
+  animation: fade-in 1s 2s linear both;
   animation-delay: 1.2s;
   margin-top: 1rem;
   display: grid;
@@ -147,7 +161,7 @@ section {
   position: fixed;
   top: 0;
   width: 100vw;
-  mix-blend-mode: color-dodge;
+  mix-blend-mode: color-burn;
 }
 
 h1, h2 {
