@@ -43,6 +43,19 @@ html {
 body {
   padding: 5rem 1rem 1rem;
   margin: 0 auto;
+  position: relative;
+}
+
+body::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-image: linear-gradient(180deg, transparent 0%, white 100%);
+  z-index: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -52,6 +65,10 @@ body {
     gap: 2rem;
     padding-left: 2rem;
     padding-top: 1rem;
+  }
+
+  body::after {
+    content: none;
   }
 }
 
@@ -313,6 +330,7 @@ footer {
   text-align: center;
   grid-column: span 2;
   z-index: 1;
+  position: relative;
 }
 
 footer a {
