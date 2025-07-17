@@ -121,13 +121,16 @@ header h1 {
 }
 
 main {
-  animation: fade-in 1s 1.2s linear both;
   margin-top: 1rem;
   display: grid;
   gap: 1rem;
   line-height: 1.5;
   z-index: 1;
   position: relative;
+}
+
+.first-load main {
+  animation: fade-in 1s 1.2s linear both;
 }
 
 p, ul {
