@@ -69,7 +69,7 @@ void main() {
   float cells2 = voro(vec2(uv.y, uv.x), tp + 0.5, 5.0);
   float cells3 = voro(vec2(uv.x, uv.y), tp * 0.5 + 1.0, 8.0);
   float intro = clamp(tp, 0.0, 0.4);
-  float focus = ${ASPECT_DIM === 'y' ? 1.65 : 1.35} - length(vec2(1.0 - uv.x, uv.y));
+  float focus = ${ASPECT_DIM === 'y' ? 1.35 : 1.35} - length(vec2(1.0 - uv.x, uv.y));
 
   float cells = cells1 / cells2 / cells3;
   float full = cells * focus - noise;
