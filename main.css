@@ -41,7 +41,7 @@ html {
 }
 
 body {
-  padding: 5rem 1rem 1rem;
+  padding: 1rem;
   margin: 0 auto;
   position: relative;
 }
@@ -60,9 +60,6 @@ body::after {
 
 @media screen and (min-width: 768px) {
   body {
-    display: grid;
-    grid-template-columns: min-content 2fr;
-    gap: 2rem;
     padding-left: 2rem;
     padding-top: 1rem;
   }
@@ -74,29 +71,20 @@ body::after {
 
 header h1 {
   mix-blend-mode: color-burn;
-  text-shadow: 0 0 10px currentColor;
   font-size: 8rem;
   letter-spacing: -0.1ch;
-  margin: 1rem 0;
-  color: salmon;
+  margin: 1rem 0 2rem;
 }
 
 .first-load header h1 {
-  animation: fade-in 1s 1s linear both, slide-in 2s ease-out both;
+  animation: fade-in 1s 1s linear both;
 }
 
 @media screen and (min-width: 768px) {
-  header {
-    top: calc(100vh - 10rem - 1rem);
-    position: sticky;
-    align-self: start;
-    height: calc(100vh - 2rem);
-  }
-
   header h1 {
     text-align: left;
     font-size: 5rem;
-    margin: 0 0 3rem;
+    margin: 1rem 0 1rem;
   }
 }
 
@@ -178,7 +166,7 @@ section {
 
 @media screen and (min-width: 1000px) {
   main {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -189,7 +177,7 @@ section {
   position: fixed;
   top: 0;
   width: 100vw;
-  mix-blend-mode: color-burn;
+  z-index: -1;
 }
 
 h1, h2 {
