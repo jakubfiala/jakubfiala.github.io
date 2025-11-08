@@ -55,6 +55,7 @@
   max-width: 80ch;
   margin: 1rem 0 0;
   mix-blend-mode: normal;
+  animation: none;
 }
 
 .subpage section:hover {
