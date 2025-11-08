@@ -54,10 +54,11 @@
   background: #ffffffa0;
   max-width: 80ch;
   margin: 1rem 0 0;
+  mix-blend-mode: normal;
 }
 
 .subpage section:hover {
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 
 .article {
