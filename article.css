@@ -56,6 +56,10 @@
   margin: 1rem 0 0;
 }
 
+.subpage section:hover {
+  mix-blend-mode: multiply;
+}
+
 .article {
   font-size: 1.1rem;
   padding: 1rem;
