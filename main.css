@@ -23,9 +23,9 @@
   12% { justify-content: space-between; }
   25% { justify-content: start; flex-direction: row-reverse; color: black; }
   50% { justify-content: center; mix-blend-mode: darken; color: salmon; }
-  55% { flex-direction: row; mix-blend-mode: difference; }
-  64% { flex-direction: row-reverse; }
-  80% { flex-direction: row; mix-blend-mode: color-burn; color: black; }
+  55% { flex-direction: row; }
+  64% { flex-direction: row-reverse; mix-blend-mode: color-burn; justify-content: end; }
+  80% { flex-direction: row;  color: black; }
   90% { justify-content: space-around; }
 }
 
@@ -39,6 +39,7 @@
 }
 
 html {
+  animation: fade-in 2s both;
   color: #111;
   font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, P052, serif;
   font-size: 16px;
@@ -239,7 +240,8 @@ h1 {
 }
 
 .links__item:hover {
-  background: #444;
+  background: salmon;
+  color: black;
 }
 
 a, a:visited {
@@ -261,7 +263,7 @@ a, a:visited {
   100% { mix-blend-mode: difference; }
 }
 
-section:hover {
+section:not(:first-of-type):hover {
   animation: section-fun 7777ms infinite alternate both step-end;
   background: #ffffffdd;
   box-shadow: 5px 5px 30px #fff3;
@@ -270,7 +272,7 @@ section:hover {
   opacity: 0.99;
 }
 
-section:hover ::selection {
+section:not(:first-of-type):hover ::selection {
   background: rgb(5, 127, 136);
   color: white;
 }
@@ -291,10 +293,6 @@ section:hover ::selection {
 
 .work__title {
   margin: 0 0 0.25rem;
-}
-
-.work:hover .work__title {
-  text-decoration: underline;
 }
 
 .work__subtitle {
@@ -343,6 +341,7 @@ footer {
   grid-column: span 2;
   z-index: 1;
   position: relative;
+  text-align: center;
 }
 
 footer a {
