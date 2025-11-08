@@ -81,7 +81,7 @@ body::after {
 }
 
 header h1 {
-  animation: heading-fun 22222ms step-end infinite;
+  animation: heading-fun 16161ms step-end infinite;
   mix-blend-mode: color-burn;
   font-size: 8rem;
   font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
