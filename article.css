@@ -59,6 +59,12 @@
 
 .subpage section:hover {
   mix-blend-mode: normal;
+  border-color: salmon;
+}
+
+.subpage section:hover ::selection {
+  background: salmon;
+  color: black;
 }
 
 .article {

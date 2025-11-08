@@ -251,7 +251,18 @@ a, a:visited {
   margin-top: 0.1rem;
 }
 
+@keyframes section-fun {
+  0% { mix-blend-mode: difference; }
+  48% { mix-blend-mode: color-burn; }
+  53% { mix-blend-mode: difference; }
+  75% { mix-blend-mode: color-burn; }
+  80% { mix-blend-mode: difference; }
+  99% { mix-blend-mode: color-burn; }
+  100% { mix-blend-mode: difference; }
+}
+
 section:hover {
+  animation: section-fun 7777ms infinite alternate both step-end;
   background: #ffffffdd;
   box-shadow: 5px 5px 30px #fff3;
   border-color: rgb(5, 127, 136);
