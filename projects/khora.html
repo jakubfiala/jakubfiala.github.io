@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="subpage" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Khora — Jakub Fiala</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="msapplication-TileColor" content="#603cba" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="author" content="Jakub Fiala" />
+    <meta property="og:title" content="Khora — Jakub Fiala" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../article.css"
+    />
+    <script src="../index.js" async defer type="module"></script>
+  </head>
+  <body>
+    <header><h1>Jakub Fiala</h1></header>
+    <main>
+      <a class="back-link" href="../">&larr; Back</a>
+      <section class="article">
+        <h2 class="article__title">Khora</h2>
+        <ul class="work__tags">
+          <li class="work__tag">Web</li>
+          <li class="work__tag">3D</li>
+          <li class="work__tag">Data Viz</li>
+          <li class="work__tag">Generative</li>
+        </ul>
+        <ul class="article-links" title="Related links">
+          <li class="article-links__item">
+            <a href="https://khora.world" rel="noopener" target="_blank">
+              Khora website
+            </a>
+          </li>
+          <li class="article-links__item">
+            <a
+              href="https://www.fiala.space/blog/guide-to-modern-crossbrowser-video/"
+              rel="noopener"
+              target="_blank"
+            >
+              My article on optimised video in Khora
+            </a>
+          </li>
+          <li class="article-links__item">
+            <a
+              href="https://palinode.substack.com/p/hoping-for-a-whole-internet"
+              rel="noopener"
+              target="_blank"
+            >
+              My Khôral Notes talk "Hoping for a Whole Internet"
+            </a>
+          </li>
+        </ul>
+        <img
+          class="article__image"
+          src="../assets/img/khora/khora1.jpg"
+          alt="Visualisation of a group of Nodes in Khora including Hyperstition, Superstition and Epistemology"
+        />
+        <p>
+          In 2025 I worked with
+          <a href="https://palinode.org/" target="_blank">Palinode</a>, a
+          US-based philosophy initiative, to develop a MVP of <em>Khora</em>, an
+          innovative platform for visually exploring philosophy. Working
+          together with
+          <a href="https://mercurialminutes.github.io/">Karin Valis</a>, I built
+          a 3D visual interface into Khora's knowledge graph, using Three.js,
+          R3F and GLSL shaders as well as various graph layout and manipulation
+          techniques.
+        </p>
+        <img
+          src="../assets/img/khora/khora2.jpg"
+          loading="lazy"
+          alt="Khora interface with the 'Hyperreality and ancient wisdom disconnection' Node selected."
+        />
+        <p>
+          Khora uses a combination of graph database, vector embeddings and
+          LLM-based summarisation to build a rich conceptual model on top of a
+          body of philosophical writings, podcasts, lectures and videos.
+          Connections are initially scaffolded by the LLM-based ingest, but
+          users are encouraged to create their own connections, working towards
+          a crowdsourced knowledge commons. Augmented by the knowledge graph,
+          Khora is able to search the library in deeply semantic and often
+          unexpected ways. The web-based interface allows the user to traverse
+          and store pathways through the knowledge graph, as well as reorganise
+          and annotate their thought process.
+        </p>
+        <img
+          src="../assets/img/khora/khora3.jpg"
+          loading="lazy"
+          alt="A view of Khora while creating a connection between 'Hyperobjects' and 'Object-oriented ontologies in psychology'"
+        />
+        <p>
+          To visualise the Nodes - a core component of Khora's information
+          architecture - I developed a custom GLSL shader animation, which
+          doubles up as a loose, gentle visualisation of the content categories
+          connected to the given Node. I used layers of Perlin noise, distance
+          and trigonometric functions to create the glowing ring effect, as well
+          as randomly appearing "solar flares". The connections between nodes
+          are parametric spline clusters, visualising the strength and overall
+          nature of all connections made between the given two Nodes.
+        </p>
+        <video autoplay loop muted playsinline style="max-width: 500px">
+          <source
+            type="video/mp4; codec=av01.0.09M.08.0.110.01.01.02.0"
+            src="../assets/img/khora/khora-node.av1.mp4"
+          />
+          <source
+            type="video/webm; codec=vp9"
+            src="../assets/img/khora/khora-node.vp9.webm"
+          />
+        </video>
+        <p>
+          Besides developing the Khora web app, I also helped the Palinode team
+          with the essentials of becoming a software company, setting up cloud
+          infrastructure, CI/CD and automated testing, product documentation as
+          well as security and other IT practices.
+        </p>
+      </section>
+    </main>
+    <footer>
+      &copy; Jakub Fiala 2024 &mdash; <a href="/blog" lang="de">Blog</a> &mdash;
+      <a href="https://assemblag.es/@jakub">Mastodon</a> &mdash;
+      <a href="mailto:studio@fiala.space">Contact</a> &mdash;
+      <a href="/impressum.html" lang="de">Impressum</a> &mdash;
+      <a href="/datenschutzerklaerung.html" lang="de">Datenschutzerklärung</a>
+    </footer>
+  </body>
+</html>

@@ -19,14 +19,67 @@
 }
 
 @keyframes heading-fun {
-  0% { justify-content: start; }
-  12% { justify-content: space-between; }
-  25% { justify-content: start; flex-direction: row-reverse; color: black; }
-  50% { justify-content: center; mix-blend-mode: darken; color: salmon; }
-  55% { flex-direction: row; }
-  64% { flex-direction: row-reverse; mix-blend-mode: color-burn; justify-content: end; }
-  80% { flex-direction: row;  color: black; }
-  90% { justify-content: space-around; }
+  0% {
+    justify-content: start;
+  }
+  12% {
+    justify-content: space-between;
+  }
+  25% {
+    justify-content: start;
+    flex-direction: row-reverse;
+    color: black;
+  }
+  50% {
+    justify-content: center;
+    mix-blend-mode: darken;
+    color: salmon;
+  }
+  55% {
+    flex-direction: row;
+  }
+  64% {
+    flex-direction: row-reverse;
+    mix-blend-mode: color-burn;
+    justify-content: end;
+  }
+  80% {
+    flex-direction: row;
+    color: black;
+  }
+  90% {
+    justify-content: space-around;
+  }
+}
+
+@keyframes heading-more-fun {
+  0% {
+    scale: 1 1;
+  }
+  20% {
+    scale: 1 2;
+  }
+  38% {
+    translate: 0 200%;
+  }
+  63% {
+    scale: 1 1;
+  }
+  78% {
+    translate: 0;
+  }
+  81% {
+    scale: 1 2;
+  }
+  95% {
+    translate: 0 300%;
+  }
+  99% {
+    translate: 0;
+  }
+  100% {
+    scale: 1 1;
+  }
 }
 
 * {
@@ -41,7 +94,7 @@
 html {
   animation: fade-in 2s both;
   color: #111;
-  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, P052, serif;
+  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, P052, serif;
   font-size: 16px;
   padding: 0;
 }
@@ -82,10 +135,13 @@ body::after {
 }
 
 header h1 {
-  animation: heading-fun 16161ms step-end infinite;
+  animation:
+    heading-fun 16161ms step-end infinite,
+    heading-more-fun 18181ms step-end infinite;
   mix-blend-mode: color-burn;
   font-size: 8rem;
-  font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+  font-family:
+    "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
   font-weight: normal;
   letter-spacing: -0.1ch;
   margin: 1rem 0 2rem;
@@ -121,7 +177,8 @@ main {
   z-index: 1;
 }
 
-p, ul {
+p,
+ul {
   hyphens: auto;
 }
 
@@ -181,7 +238,8 @@ section {
   z-index: -1;
 }
 
-h1, h2 {
+h1,
+h2 {
   line-height: 1;
 }
 
@@ -230,13 +288,16 @@ h1 {
   }
 }
 
-.links__item, .work__tag {
+.links__item,
+.work__tag {
   background: #111;
   color: white;
   line-height: 2;
   padding: 0 0.5rem;
   white-space: nowrap;
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family:
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
 }
 
 .links__item:hover {
@@ -244,7 +305,8 @@ h1 {
   color: black;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: inherit;
   text-decoration: none;
 }
@@ -254,13 +316,27 @@ a, a:visited {
 }
 
 @keyframes section-fun {
-  0% { mix-blend-mode: difference; }
-  48% { mix-blend-mode: color-burn; }
-  53% { mix-blend-mode: difference; }
-  75% { mix-blend-mode: color-burn; }
-  80% { mix-blend-mode: difference; }
-  99% { mix-blend-mode: color-burn; }
-  100% { mix-blend-mode: difference; }
+  0% {
+    mix-blend-mode: difference;
+  }
+  48% {
+    mix-blend-mode: color-burn;
+  }
+  53% {
+    mix-blend-mode: difference;
+  }
+  75% {
+    mix-blend-mode: color-burn;
+  }
+  80% {
+    mix-blend-mode: difference;
+  }
+  99% {
+    mix-blend-mode: color-burn;
+  }
+  100% {
+    mix-blend-mode: difference;
+  }
 }
 
 section:not(:first-of-type):hover {
@@ -277,7 +353,8 @@ section:not(:first-of-type):hover ::selection {
   color: white;
 }
 
-.work__image, .article__image {
+.work__image,
+.article__image {
   display: block;
   width: 100%;
 }
@@ -320,11 +397,11 @@ section:not(:first-of-type):hover ::selection {
 }
 
 .testimonial__text::before {
-  content: '\201C';
+  content: "\201C";
 }
 
 .testimonial__text::after {
-  content: '\201D';
+  content: "\201D";
 }
 
 .testimonial__source {
@@ -332,7 +409,7 @@ section:not(:first-of-type):hover ::selection {
 }
 
 .testimonial__source::before {
-  content: '\002014\000020';
+  content: "\002014\000020";
 }
 
 footer {

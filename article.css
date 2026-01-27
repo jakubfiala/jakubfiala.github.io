@@ -22,7 +22,8 @@
   }
 }
 
-.subpage header, .subpage main {
+.subpage header,
+.subpage main {
   animation: none;
 }
 
@@ -66,7 +67,8 @@
   text-decoration: underline;
 }
 
-.article img {
+.article img,
+.article video {
   border: solid 1px #0001;
   display: block;
   max-width: 100%;
@@ -78,7 +80,7 @@
 }
 
 blockquote {
-  border-left: solid .5rem #0001;
+  border-left: solid 0.5rem #0001;
   font-size: 0.9em;
   margin-left: 0;
   margin-right: 0;
@@ -106,6 +108,6 @@ img.article__image {
 }
 
 .article-links__item:before {
-  content: ' / ';
+  content: " / ";
   opacity: 0.3;
 }
