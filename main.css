@@ -1,87 +1,3 @@
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    translate: 0 -100%;
-  }
-
-  to {
-    translate: 0 0%;
-  }
-}
-
-@keyframes heading-fun {
-  0% {
-    justify-content: start;
-  }
-  12% {
-    justify-content: space-between;
-  }
-  25% {
-    justify-content: start;
-    flex-direction: row-reverse;
-    color: black;
-  }
-  50% {
-    justify-content: center;
-    mix-blend-mode: darken;
-    color: salmon;
-  }
-  55% {
-    flex-direction: row;
-  }
-  64% {
-    flex-direction: row-reverse;
-    mix-blend-mode: color-burn;
-    justify-content: end;
-  }
-  80% {
-    flex-direction: row;
-    color: black;
-  }
-  90% {
-    justify-content: space-around;
-  }
-}
-
-@keyframes heading-more-fun {
-  0% {
-    scale: 1 1;
-  }
-  20% {
-    scale: 1 2;
-  }
-  38% {
-    translate: 0 200%;
-  }
-  63% {
-    scale: 1 1;
-  }
-  78% {
-    translate: 0;
-  }
-  81% {
-    scale: 1 2;
-  }
-  95% {
-    translate: 0 300%;
-  }
-  99% {
-    translate: 0;
-  }
-  100% {
-    scale: 1 1;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -92,7 +8,6 @@
 }
 
 html {
-  animation: fade-in 2s both;
   color: #111;
   font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, P052, serif;
   font-size: 16px;
@@ -136,11 +51,21 @@ body::after {
 
 header,
 main {
-  animation: fade-in 1s both;
+  opacity: 1;
+  transition: opacity 1s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+::view-transition-new(header),
+::view-transition-new(main) {
+  animation: none;
 }
 
 main {
-  animation-delay: 0.5s;
+  transition-delay: 0.25s;
 }
 
 header {
@@ -148,7 +73,13 @@ header {
   z-index: 1;
 }
 
+@view-transition {
+  navigation: auto;
+  animation-duration: 500ms;
+}
+
 header h1 {
+  view-transition-name: h1;
   /*animation:
     heading-fun 16161ms step-end infinite,
     heading-more-fun 18181ms step-end infinite;*/
