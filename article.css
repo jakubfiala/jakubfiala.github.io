@@ -48,10 +48,16 @@
 
 .subpage section {
   background: #ffffffa0;
-  max-width: 80ch;
+  max-width: calc(100vw - 2rem);
   margin: 1rem auto 0;
   mix-blend-mode: normal;
   animation: none;
+}
+
+@media screen and (min-width: 768px) {
+  .subpage section {
+    max-width: 80ch;
+  }
 }
 
 .article {

@@ -161,7 +161,7 @@ section:not(:first-of-type):hover ::selection {
 }
 
 .intro > :first-child {
-  margin: 0.5rem 0 0;
+  margin: 1rem 0 0;
 }
 
 .intro :last-child {
@@ -207,7 +207,7 @@ section:not(:first-of-type):hover ::selection {
   width: 100vw;
   z-index: 1;
   pointer-events: none;
-  mix-blend-mode: hard-light;
+  mix-blend-mode: plus-lighter;
 }
 
 h1,
