@@ -28,7 +28,22 @@
 }
 
 .subpage header h1 {
-  animation-direction: reverse;
+  margin-top: 3rem;
+  height: 0.7em;
+}
+
+@media screen and (min-width: 1000px) {
+  .subpage header h1 {
+    translate: 2ch 50%;
+    height: 1.15em;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .subpage header h1 {
+    translate: 4ch 50%;
+  }
 }
 
 .subpage section {
@@ -88,8 +103,14 @@ blockquote {
 }
 
 .article__title {
-  margin: 0 0 1rem;
+  margin: 1.5rem 0 1rem;
   font-size: 2.5rem;
+}
+
+@media screen and (min-width: 1500px) {
+  .article__title {
+    margin: 2rem 0 1rem;
+  }
 }
 
 img.article__image {

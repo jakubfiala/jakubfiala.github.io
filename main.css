@@ -134,19 +134,40 @@ body::after {
   }
 }
 
+header,
+main {
+  animation: fade-in 1s both;
+}
+
+main {
+  animation-delay: 0.5s;
+}
+
+header {
+  position: relative;
+  z-index: 1;
+}
+
 header h1 {
-  animation:
+  /*animation:
     heading-fun 16161ms step-end infinite,
-    heading-more-fun 18181ms step-end infinite;
-  mix-blend-mode: color-burn;
-  font-size: 8rem;
+    heading-more-fun 18181ms step-end infinite;*/
+  scale: 1 2;
+  /*mix-blend-mode: color-burn;*/
+  font-size: 4.5rem;
   font-family:
     "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
   font-weight: normal;
   letter-spacing: -0.1ch;
-  margin: 1rem 0 2rem;
+  margin: 0 0 2rem;
   display: flex;
   gap: 1ch;
+  height: 0.9em;
+  translate: -0.2ch 50%;
+  text-shadow:
+    0 0 5px #0008,
+    0 0 20px #0006,
+    0 0 50px #0003;
 }
 
 @media screen and (min-width: 768px) {
@@ -154,6 +175,7 @@ header h1 {
     text-align: left;
     font-size: 5rem;
     margin: 1rem 0 1rem;
+    height: 1.25em;
   }
 }
 
@@ -184,13 +206,31 @@ ul {
 
 section {
   background: #ffffffa0;
-  border: solid 3px;
-  box-shadow: 5px 5px 30px #0001;
-  mix-blend-mode: multiply;
+  border: none;
+  box-shadow:
+    0 0 5px #0001,
+    0 0 30px #0001,
+    0 0 50px #0001;
+  transition:
+    box-shadow 750ms,
+    scale 750ms;
 }
 
-.intro :first-child {
-  margin: 0;
+section:not(:first-of-type):hover {
+  background: #ffffffdd;
+  box-shadow:
+    0 0 5px #0003,
+    0 0 30px #0003,
+    0 0 50px #0003;
+}
+
+section:not(:first-of-type):hover ::selection {
+  background: rgb(5, 127, 136);
+  color: white;
+}
+
+.intro > :first-child {
+  margin: 0.5rem 0 0;
 }
 
 .intro :last-child {
@@ -229,13 +269,14 @@ section {
 }
 
 #bg {
-  background: white;
   height: 100vh;
   left: 0;
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: hard-light;
 }
 
 h1,
@@ -313,44 +354,6 @@ a:visited {
 
 .services li + li {
   margin-top: 0.1rem;
-}
-
-@keyframes section-fun {
-  0% {
-    mix-blend-mode: difference;
-  }
-  48% {
-    mix-blend-mode: color-burn;
-  }
-  53% {
-    mix-blend-mode: difference;
-  }
-  75% {
-    mix-blend-mode: color-burn;
-  }
-  80% {
-    mix-blend-mode: difference;
-  }
-  99% {
-    mix-blend-mode: color-burn;
-  }
-  100% {
-    mix-blend-mode: difference;
-  }
-}
-
-section:not(:first-of-type):hover {
-  animation: section-fun 7777ms infinite alternate both step-end;
-  background: #ffffffdd;
-  box-shadow: 5px 5px 30px #fff3;
-  border-color: rgb(5, 127, 136);
-  mix-blend-mode: difference;
-  opacity: 0.99;
-}
-
-section:not(:first-of-type):hover ::selection {
-  background: rgb(5, 127, 136);
-  color: white;
 }
 
 .work__image,
@@ -431,6 +434,8 @@ footer a {
   top: 1rem;
   left: 1rem;
   font-family: monospace;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .back-link:hover {
