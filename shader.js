@@ -33,7 +33,7 @@ void main() {
   float intro = clamp(tp, 0.0, 0.4);
 
   float lines = pow(sin(uv.x * ${window.innerWidth.toFixed(1)}), 2.0)
-    * sin(uv.x)
+    * (sin(uv.x) * 0.75 + 0.25)
     + cos(uv.y * 0.5 + min(tp${firstLoad ? "" : "+ 1.25"}, 3.0));
 
   // lines += pow(sin(uv.y * 100.0), 2.0);
