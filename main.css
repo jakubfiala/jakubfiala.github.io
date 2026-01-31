@@ -59,9 +59,13 @@ main {
   }
 }
 
+::view-transition-old(header),
+::view-transition-old(main) {
+  transition: none;
+}
 ::view-transition-new(header),
 ::view-transition-new(main) {
-  animation: none;
+  transition: none;
 }
 
 main {

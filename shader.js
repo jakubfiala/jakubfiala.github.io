@@ -6,7 +6,7 @@ if (firstLoad) {
 }
 
 export default `
-# define SPEED 0.3
+# define SPEED 0.7
 # define PI 3.1415926538
 
 #ifdef GL_ES
@@ -34,7 +34,7 @@ void main() {
 
   float lines = pow(sin(uv.x * ${window.innerWidth.toFixed(1)}), 2.0)
     * sin(uv.x)
-    + cos(uv.y * 2.0 + min(tp${firstLoad ? "" : "+ 1.25"}, 3.0));
+    + cos(uv.y * 0.5 + min(tp${firstLoad ? "" : "+ 1.25"}, 3.0));
 
   // lines += pow(sin(uv.y * 100.0), 2.0);
 
