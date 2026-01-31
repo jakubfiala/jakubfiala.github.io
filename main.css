@@ -364,6 +364,8 @@ footer a {
   position: fixed;
   top: 1rem;
   left: 1rem;
+  font-family: monospace;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
