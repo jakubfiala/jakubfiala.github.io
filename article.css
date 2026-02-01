@@ -8,14 +8,6 @@
   }
 }
 
-.subpage #logo {
-  min-width: 300px;
-}
-
-.subpage #bg {
-  animation: none;
-}
-
 @media screen and (min-width: 1000px) {
   .subpage main {
     grid-template-columns: 1fr;
@@ -65,6 +57,16 @@
   padding: 1rem;
   grid-column: span 6;
   position: relative;
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity 500ms,
+    translate 500ms;
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 3rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
