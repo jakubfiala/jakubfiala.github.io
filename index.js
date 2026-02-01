@@ -1,7 +1,8 @@
-import fragmentShaderSource from "./shader.js";
+import createFragShader from "./shader.js";
 import { createRenderer } from "./glsl-sandbox.js";
 
-const { canvas, draw } = createRenderer(fragmentShaderSource);
+const overlay = createRenderer(createFragShader());
+const bg = createRenderer(createFragShader(true));
 
 const shouldHaveHeadStart =
   !document.documentElement.classList.contains("first-load") ||
@@ -9,12 +10,16 @@ const shouldHaveHeadStart =
 
 const headStart = shouldHaveHeadStart ? 1000 : 0;
 
-canvas.id = "bg";
-document.body.appendChild(canvas);
+overlay.canvas.id = "overlay";
+document.body.appendChild(overlay.canvas);
+bg.canvas.id = "bg";
+document.body.insertBefore(bg.canvas, document.body.firstElementChild);
 
 const onWindowResize = () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  overlay.canvas.width = window.innerWidth;
+  overlay.canvas.height = window.innerHeight;
+  bg.canvas.width = window.innerWidth;
+  bg.canvas.height = window.innerHeight;
 };
 
 onWindowResize();
@@ -39,14 +44,16 @@ const animate = (time) => {
   }
 
   requestAnimationFrame(animate);
-  draw(
+  const shaderArgs = [
     time + headStart,
     renderedMouse.x,
     renderedMouse.y,
-    canvas.width,
-    canvas.height,
+    overlay.canvas.width,
+    overlay.canvas.height,
     false,
-  );
+  ];
+  overlay.draw(...shaderArgs);
+  bg.draw(...shaderArgs);
 };
 
 export const startAnimating = () => requestAnimationFrame(animate);

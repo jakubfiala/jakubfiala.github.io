@@ -202,12 +202,20 @@ section:not(:first-of-type):hover ::selection {
   }
 }
 
-#bg {
+#bg,
+#overlay {
   height: 100vh;
   left: 0;
   position: fixed;
   top: 0;
   width: 100vw;
+}
+
+#bg {
+  z-index: -1;
+}
+
+#overlay {
   z-index: 1;
   pointer-events: none;
   mix-blend-mode: plus-lighter;
