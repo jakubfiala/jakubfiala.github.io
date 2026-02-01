@@ -1,10 +1,5 @@
 const ASPECT_DIM = innerWidth > innerHeight ? "y" : "x";
 
-const firstLoad = !sessionStorage.getItem("jffl");
-if (firstLoad) {
-  sessionStorage.setItem("jffl", true);
-}
-
 export default `
 # define SPEED 0.7
 # define PI 3.1415926538
@@ -34,7 +29,7 @@ void main() {
 
   float lines = pow(sin(uv.x * ${window.innerWidth.toFixed(1)}), 2.0)
     * (sin(uv.x) * 0.75 + 0.25)
-    + cos(uv.y * 0.5 + min(tp${firstLoad ? "" : "+ 0.75"}, 2.0));
+    + cos(uv.y * 0.5 + min(tp${window.firstLoad ? "" : "+ 0.75"}, 2.0));
 
   // lines += pow(sin(uv.y * 100.0), 2.0);
 

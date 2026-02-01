@@ -49,18 +49,20 @@ body::after {
   }
 }
 
-header,
-main {
-  opacity: 1;
-  transition: opacity 1s 500ms;
+.first-load {
+  header,
+  main {
+    opacity: 1;
+    transition: opacity 1s 500ms;
 
-  @starting-style {
-    opacity: 0;
+    @starting-style {
+      opacity: 0;
+    }
   }
-}
 
-main {
-  transition-delay: 0.25s;
+  main {
+    transition-delay: 0.25s;
+  }
 }
 
 header {

@@ -16,6 +16,7 @@
     <script>
       if (!document.referrer.startsWith(location.origin)) {
         document.documentElement.classList.add("first-load");
+        window.firstLoad = true;
       }
     </script>
   </head>
