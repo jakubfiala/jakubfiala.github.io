@@ -52,20 +52,11 @@ body::after {
 header,
 main {
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 1s 500ms;
 
   @starting-style {
     opacity: 0;
   }
-}
-
-::view-transition-old(header),
-::view-transition-old(main) {
-  transition: none;
-}
-::view-transition-new(header),
-::view-transition-new(main) {
-  transition: none;
 }
 
 main {
@@ -186,8 +177,8 @@ section:not(:first-of-type):hover ::selection {
 }
 
 .intro ul {
-  padding-left: 0;
-  list-style-position: inside;
+  list-style-position: outside;
+  padding-left: 1rem;
 }
 
 @media screen and (min-width: 768px) {
