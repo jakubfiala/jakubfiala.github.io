@@ -91,6 +91,7 @@ header h1 {
   display: flex;
   gap: 1ch;
   height: 0.9em;
+  width: min-content;
   translate: -0.2ch 50%;
   text-shadow:
     0 0 5px #0008,
