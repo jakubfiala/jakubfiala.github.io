@@ -26,20 +26,25 @@
 
 @media screen and (min-width: 1000px) {
   .subpage header h1 {
-    translate: 2ch 50%;
+    translate: 3ch 55%;
     height: 1.15em;
     margin-top: 2rem;
   }
 }
 
+@media screen and (min-width: 1300px) {
+  .subpage header h1 {
+    translate: 5ch 55%;
+  }
+}
+
 @media screen and (min-width: 1900px) {
   .subpage header h1 {
-    translate: 4ch 50%;
+    translate: 9ch 55%;
   }
 }
 
 .subpage section {
-  background: #ffffffa0;
   max-width: calc(100vw - 2rem);
   margin: 1rem auto 0;
   mix-blend-mode: normal;
