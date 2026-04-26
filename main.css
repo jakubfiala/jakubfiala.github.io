@@ -381,3 +381,9 @@ footer a {
 .back-link:hover {
   color: salmon;
 }
+
+figcaption {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 0.5em;
+}

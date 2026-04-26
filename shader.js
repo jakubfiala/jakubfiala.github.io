@@ -38,7 +38,7 @@ void main() {
 
   float tp = time * SPEED${bg ? " + 1.0" : ""};
 
-  float noise = (0.2 * rand(1.0e2 * uv + time * 0.0001) - 0.15);
+  float noise = (0.225 * rand(1.0e2 * uv + time * 0.0001) - 0.15);
   ${bg ? justNoise : bands}
   gl_FragColor = vec4(vec3(full), ${bg ? "1.0" : "full"});
 }
