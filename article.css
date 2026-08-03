@@ -145,3 +145,7 @@ img.article__image {
   content: " / ";
   opacity: 0.3;
 }
+
+.article ol li + li {
+  margin-top: 0.5rem;
+}
