@@ -90,9 +90,15 @@
   margin: 2rem 0;
 }
 
-.article a {
+.article a,
+.article a:visited {
   font-weight: 500;
-  text-decoration: underline;
+  color: salmon;
+  text-decoration: wavy underline;
+}
+
+.article a:hover {
+  color: darksalmon;
 }
 
 .article img,
@@ -139,6 +145,11 @@ img.article__image {
 .article-links__item {
   display: block;
   text-indent: -1ch;
+}
+
+.article-links__item a,
+.article-links__item a:visited {
+  color: inherit;
 }
 
 .article-links__item:before {
