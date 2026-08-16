@@ -10,15 +10,10 @@
 html {
   color: #111;
   font-family: monospace;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
 }
 
-@media screen and (min-width: 390px) {
-  html {
-    font-size: 14px;
-  }
-}
 @media screen and (min-width: 1500px) {
   html {
     font-size: 16px;
@@ -265,7 +260,7 @@ h1 {
   align-items: center;
   gap: 0.5rem;
   margin: 2rem 0 0;
-  padding: 1rem 0 0;
+  padding: 1rem 2rem 0;
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
@@ -289,6 +284,7 @@ h1 {
 @media screen and (min-width: 768px) {
   .links {
     justify-content: start;
+    padding: 1rem 0 0;
   }
 }
 
