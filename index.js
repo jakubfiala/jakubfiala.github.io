@@ -72,7 +72,7 @@ if (creepy) {
         { filter: "blur(1000px)", opacity: 0 },
         { filter: "blur(0px)", opacity: 1 },
       ],
-      { duration: 10_000 },
+      { duration: 7_000, easing: "linear" },
     );
 
     title.addEventListener(

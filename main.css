@@ -447,6 +447,16 @@ summary {
   cursor: help;
 }
 
+summary .run {
+  translate: 0 0;
+  transition: translate 20s 500ms ease-in;
+  display: inline-block;
+}
+
+summary:hover .run {
+  translate: 200vw;
+}
+
 details ul,
 details ol {
   margin: 0.25rem 1rem 0;
