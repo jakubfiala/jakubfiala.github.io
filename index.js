@@ -59,3 +59,31 @@ const animate = (time) => {
 export const startAnimating = () => requestAnimationFrame(animate);
 
 startAnimating();
+
+const title = document.getElementById("title");
+const creepy = document.getElementById("creepy");
+
+if (creepy) {
+  title.addEventListener("pointerenter", () => {
+    creepy.hidden = false;
+
+    const animation = creepy.animate(
+      [
+        { filter: "blur(1000px)", opacity: 0 },
+        { filter: "blur(0px)", opacity: 1 },
+      ],
+      { duration: 10_000 },
+    );
+
+    title.addEventListener(
+      "pointerleave",
+      () => {
+        animation.cancel();
+        creepy.hidden = true;
+      },
+      {
+        once: true,
+      },
+    );
+  });
+}

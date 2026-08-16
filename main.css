@@ -433,3 +433,17 @@ details ol {
 details ul {
   list-style-type: "— ";
 }
+
+#creepy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+#creepy img {
+  clip-path: ellipse();
+  height: 100%;
+  filter: grayscale(100%);
+  scale: 0.75;
+}
