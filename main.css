@@ -8,6 +8,8 @@
 }
 
 html {
+  --salmon: hsl(from salmon h s 50%);
+
   color: #111;
   font-family: monospace;
   font-size: 14px;
@@ -157,7 +159,7 @@ section:not(:first-of-type):hover {
 }
 
 section:not(:first-of-type):hover ::selection {
-  background: salmon;
+  background: lightsalmon;
 }
 
 .intro > :first-child {
@@ -307,7 +309,7 @@ h1 {
 }
 
 .links__item:hover {
-  background: salmon;
+  background: lightsalmon;
   color: black;
 }
 
@@ -412,7 +414,7 @@ footer a {
 }
 
 .back-link:hover {
-  color: salmon;
+  color: var(--salmon);
 }
 
 figcaption {
@@ -427,11 +429,11 @@ figcaption {
 
 .intro details a,
 .intro details a:visited {
-  color: salmon;
+  color: var(--salmon);
   text-decoration: wavy underline;
 }
 .intro details a:hover {
-  color: darksalmon;
+  color: salmon;
 }
 
 details + details {

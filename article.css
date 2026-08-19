@@ -93,12 +93,12 @@
 .article a,
 .article a:visited {
   font-weight: 500;
-  color: salmon;
+  color: var(--salmon);
   text-decoration: wavy underline;
 }
 
 .article a:hover {
-  color: darksalmon;
+  color: salmon;
 }
 
 .article img,
