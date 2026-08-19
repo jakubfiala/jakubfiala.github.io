@@ -429,11 +429,12 @@ figcaption {
 
 .intro details a,
 .intro details a:visited {
-  color: var(--salmon);
-  text-decoration: wavy underline;
+  text-decoration: wavy underline salmon 1.5px;
 }
 .intro details a:hover {
   color: salmon;
+  text-decoration-line: line-through;
+  text-decoration-color: rgb(from currentColor r g b / 0.4);
 }
 
 details + details {

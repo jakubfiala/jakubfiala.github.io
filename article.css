@@ -93,12 +93,14 @@
 .article a,
 .article a:visited {
   font-weight: 500;
-  color: var(--salmon);
-  text-decoration: wavy underline;
+  color: inherit;
+  text-decoration: wavy underline salmon 1.5px;
 }
 
 .article a:hover {
   color: salmon;
+  text-decoration-line: line-through;
+  text-decoration-color: rgb(from currentColor r g b / 0.4);
 }
 
 .article img,
@@ -150,6 +152,10 @@ img.article__image {
 .article-links__item a,
 .article-links__item a:visited {
   color: inherit;
+}
+
+.article-links__item a:hover {
+  color: salmon;
 }
 
 .article-links__item:before {
