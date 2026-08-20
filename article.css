@@ -94,7 +94,8 @@
 .article a:visited {
   font-weight: 500;
   color: inherit;
-  text-decoration: wavy underline salmon 1.5px;
+  text-decoration: dotted underline salmon 1.5px;
+  text-decoration-style: wavy;
 }
 
 .article a:hover {

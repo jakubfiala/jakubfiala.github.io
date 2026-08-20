@@ -429,7 +429,8 @@ figcaption {
 
 .intro details a,
 .intro details a:visited {
-  text-decoration: wavy underline salmon 1.5px;
+  text-decoration: dotted underline salmon 1.5px;
+  text-decoration-style: wavy;
 }
 .intro details a:hover {
   color: salmon;
